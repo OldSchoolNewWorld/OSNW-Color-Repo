@@ -31,12 +31,12 @@ color.
 ## Source
 
 The project for the utilities is located at 
-[OSNW-Color-Utilities](https://github.com/OldSchoolNewWorld/OSNW-Color-Repo/tree/main/OSNW-Color-Utilities), 
+[OSNW-Color-Utilities](https://github.com/OldSchoolNewWorld/OSNW-Color-Repo/tree/master/OSNW-Color-Utilities), 
 as part of 
-[OSNW-Color-Repo](https://github.com/OldSchoolNewWorld/OSNW-Color-Repo). The 
+[OSNW-Color-Repo](https://github.com/OldSchoolNewWorld/OSNW-Color-Repo/tree/master). The 
 assembly containing the utilities is 'OSNW.ColorUtilities.dll'. The namespace 
 is 'OSNW.Graphics.ColorUtilities'. A unit test project for the utilities is located at 
-[Unit-Test](https://github.com/OldSchoolNewWorld/OSNW-Color-Repo/tree/main/OSNW-Color-Utilities/Unit-Test).
+[OSNW-Color-Utilities-Unit-Test](https://github.com/OldSchoolNewWorld/OSNW-Color-Repo/tree/master/OSNW-Color-Utilities/OSNW-Color-Utilities-Unit-Test).
 
 ## Dependencies
 
