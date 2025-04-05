@@ -8,13 +8,16 @@ Imports System.IO
 Imports System.Windows
 
 ' TODO:
-' Rename the icon file in the dialog and application.
 ' Add exception handling and activate for dialog events.
 ' Add ability to set Hue as an angle.
-' Confirm that text changes and drawing clicks only update UnderlyingRGB, as
+' Consider whether text changes and drawing clicks should only update
+'   UnderlyingRGB, as opposed to RgbWorkR/RgbWorkG/RgbWorkB. Also consider
+'   whether RgbWorkR/RgbWorkG/RgbWorkB should even exist.
+' How to list copyrights for reference material?
+' Done. Rename the icon file in the dialog and application.
+' Done. Confirm that text changes and drawing clicks only update UnderlyingRGB, as
 '   opposed to Red/Green/Blue. Alternatively, that the RGB values are only used
 '   to/from UnderlyingRGB.
-' How to list copyrights for reference material?
 
 ' REF: OSNW-WPF-Custom-Dialog-Models
 ' https://github.com/OldSchoolNewWorld/OSNW-WPF-Custom-Dialog-Models
