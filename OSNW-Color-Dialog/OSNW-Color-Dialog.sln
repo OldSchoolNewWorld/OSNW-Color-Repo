@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OSNW-Color-Dialog", "OSNW-Color-Dialog\OSNW-Color-Dialog.vbproj", "{72E2678E-EADD-425E-9CC9-0B0B011AAA08}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OSNW-Color-Dialog-Demo", "OSNW-Color-Dialog-Demo\OSNW-Color-Dialog-Demo.vbproj", "{527CE0E2-C2B0-4662-AA08-D15601757B6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{72E2678E-EADD-425E-9CC9-0B0B011AAA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72E2678E-EADD-425E-9CC9-0B0B011AAA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72E2678E-EADD-425E-9CC9-0B0B011AAA08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527CE0E2-C2B0-4662-AA08-D15601757B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527CE0E2-C2B0-4662-AA08-D15601757B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527CE0E2-C2B0-4662-AA08-D15601757B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527CE0E2-C2B0-4662-AA08-D15601757B6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
