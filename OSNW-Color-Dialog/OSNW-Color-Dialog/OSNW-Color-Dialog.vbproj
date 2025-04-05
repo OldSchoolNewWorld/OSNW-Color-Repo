@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>OSNW_Color_Dialog</RootNamespace>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>OSNW_Color_Dialog</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+</Project>
