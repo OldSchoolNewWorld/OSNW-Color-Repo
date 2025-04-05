@@ -2,9 +2,30 @@
 
   <PropertyGroup>
     <RootNamespace>OSNW_Color_Utilities</RootNamespace>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>OSNW_Color_Utilities</RootNamespace>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <RootNamespace>OSNW.Graphics</RootNamespace>
     <UseWPF>true</UseWPF>
+    <AssemblyName>OSNW.ColorUtilities</AssemblyName>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>OSNW Color Utilities</Title>
+    <Version>0.1.0</Version>
+    <Authors>OldSchoolNewWorld</Authors>
+    <Company>OldSchoolNewWorld</Company>
+    <Description>Utilities to work with WPF color information.</Description>
+    <Copyright>Copyright (c) 2025 OldSchoolNewWorld</Copyright>
+    <PackageProjectUrl>https://github.com/OldSchoolNewWorld/OSNW-Color-Repo</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/OldSchoolNewWorld/OSNW-Color-Repo</RepositoryUrl>
+    <PackageTags>WPF color space VB.NET</PackageTags>
+    <PackageReleaseNotes>Ver. 0.1.0 is the initial setup and implementation.</PackageReleaseNotes>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
