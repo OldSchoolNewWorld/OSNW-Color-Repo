@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ColorWheel256.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Import Include="System.Windows" />
     <Import Include="System.Windows.Controls" />
     <Import Include="System.Windows.Data" />
@@ -26,6 +30,12 @@
     <Reference Include="OSNW.ColorUtilities">
       <HintPath>..\..\OSNW-Color-Utilities\OSNW-Color-Utilities\bin\Debug\net8.0-windows8.0\OSNW.ColorUtilities.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\ColorWheel256.bmp">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

@@ -10,17 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\YttLogo256.bmp" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="OSNW.ColorUtilities">
       <HintPath>..\..\OSNW-Color-Utilities\OSNW-Color-Utilities\bin\Debug\net8.0-windows8.0\OSNW.ColorUtilities.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\YttLogo256.bmp">
+    <Resource Include="Resources\ColorWheel256.bmp">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

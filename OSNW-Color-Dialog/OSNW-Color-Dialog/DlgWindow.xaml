@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OSNW.Dialog"
         mc:Ignorable="d"
         Title="Develop Visuals" SizeToContent="WidthAndHeight" MinWidth="370"
-        MinHeight="145" WindowStartupLocation="CenterScreen">
+        MinHeight="145" WindowStartupLocation="CenterScreen"
+        Icon="/Resources/ColorWheel256.bmp">
     <DockPanel x:Name="MainDockPanel" LastChildFill="True">
         
         <DockPanel x:Name="BottomDockPanel" DockPanel.Dock="Bottom"
@@ -167,8 +168,8 @@
                                    Height="Auto" LastChildFill="False">
                             <Image x:Name="RgbImage" Width="256" Height="256"
                                    Margin="0,3,3,3" DockPanel.Dock="Right"
-                                   Source="/Resources/YttLogo256.bmp" Stretch="None"
-                                   HorizontalAlignment="Right"
+                                   Source="/Resources/ColorWheel256.bmp"
+                                   Stretch="None" HorizontalAlignment="Right"
                                    VerticalAlignment="Center" Cursor="Cross"
                                    ToolTip= "Fix LoadToolTips!"/>
                             <Label x:Name="RgbYLabel" DockPanel.Dock="Right"
@@ -288,7 +289,7 @@
                                    HorizontalAlignment="Right"
                                    VerticalAlignment="Center" Width="256"
                                    Height="256" Stretch="None"
-                                   Source="/Resources/YttLogo256.bmp"
+                                   Source="/Resources/ColorWheel256.bmp"
                                    ToolTip= "Fix LoadToolTips!"/>
                         </DockPanel>
                         <DockPanel x:Name="HslSelectSatLumPanel"
@@ -323,7 +324,7 @@
                                    HorizontalAlignment="Right"
                                    VerticalAlignment="Center" Width="256"
                                    Height="256" Stretch="None" Cursor="Cross"
-                                   Source="/Resources/YttLogo256.bmp"
+                                   Source="/Resources/ColorWheel256.bmp"
                                    ToolTip= "Fix LoadToolTips!"/>
                         </DockPanel>
                     </DockPanel>
@@ -360,7 +361,7 @@
                                    HorizontalAlignment="Right"
                                    VerticalAlignment="Center" Width="256"
                                    Height="256" Stretch="None"
-                                   Source="/Resources/YttLogo256.bmp"
+                                   Source="/Resources/ColorWheel256.bmp"
                                    ToolTip= "Fix LoadToolTips!"/>
                         </DockPanel>
                         <DockPanel x:Name="HsvSelectSatValPanel"
@@ -395,7 +396,7 @@
                                    HorizontalAlignment="Right"
                                    VerticalAlignment="Center" Width="256"
                                    Height="256" Stretch="None" Cursor="Cross"
-                                   Source="/Resources/YttLogo256.bmp"
+                                   Source="/Resources/ColorWheel256.bmp"
                                    ToolTip= "CFix LoadToolTips!"/>
                         </DockPanel>
                     </DockPanel>
@@ -432,7 +433,7 @@
                                Width="201" Height="50"
                                HorizontalAlignment="Center" Margin="0,6,0,0"
                                VerticalAlignment="Center" Cursor="Cross"
-                               Source="/Resources/YttLogo256.bmp" Stretch="None"
+                               Source="/Resources/ColorWheel256.bmp" Stretch="None"
                                ToolTip= "Fix LoadToolTips!"/>
                         <StackPanel Orientation="Horizontal"
                                     DockPanel.Dock="Top" Margin="3"
@@ -484,7 +485,7 @@
                                Width="201" Height="50"
                                HorizontalAlignment="Center" Margin="0,6,0,0"
                                VerticalAlignment="Center" Cursor="Cross"
-                               Source="/Resources/YttLogo256.bmp" Stretch="None"
+                               Source="/Resources/ColorWheel256.bmp" Stretch="None"
                                ToolTip= "Fix LoadToolTips!"/>
                         <StackPanel Orientation="Horizontal"
                                     DockPanel.Dock="Top" Margin="3"
@@ -520,7 +521,7 @@
                                    Height="Auto" LastChildFill="False">
                             <Image x:Name="ToneImage" Width="256" Height="256"
                                    Margin="0,3,3,3" DockPanel.Dock="Right"
-                                   Source="/Resources/YttLogo256.bmp" Stretch="None"
+                                   Source="/Resources/ColorWheel256.bmp" Stretch="None"
                                    HorizontalAlignment="Right"
                                    VerticalAlignment="Center" Cursor="Cross"
                                    ToolTip="Fix LoadToolTips!"/>

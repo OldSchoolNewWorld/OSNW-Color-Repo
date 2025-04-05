@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OSNW_Color_Dialog_Demo"
         mc:Ignorable="d"
         Title="ColorDialog Demo" SizeToContent="WidthAndHeight" MinWidth="285"
-        MinHeight="75" WindowStartupLocation="CenterScreen">
+        MinHeight="75" WindowStartupLocation="CenterScreen"
+        Icon="/Resources/ColorWheel256.bmp">
     <DockPanel x:Name="MainDockPanel" LastChildFill="True">
 
         <DockPanel x:Name="BottomDockPanel" DockPanel.Dock="Bottom"
