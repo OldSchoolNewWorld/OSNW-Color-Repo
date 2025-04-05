@@ -22,11 +22,13 @@ The color manipulations include:
 * Blend - Combines two specified colors, in specified proportions.
 
 Other utilities currently include:
-* ContrastingBW - Determines Black or White as the best contrasting color for a
+* ContrastingBW - Determines Black or White as the best contrasting color for a 
 color.
-* HueScaleEnum - ??????????????????
-* GetHueFromPixel - ??????????????????
-* PixelsToImageSource - ??????????????????
+* HueScaleEnum - Allows control over how hue angles are specified.
+* GetHueFromPixel - Determine the angle from center for a pixel in a 
+`System.Windows.Controls.Image`.
+* PixelsToImageSource - Creates a source for a `System.Windows.Controls.Image` 
+and fills it with a specified array of pixels.
 
 ## Source
 

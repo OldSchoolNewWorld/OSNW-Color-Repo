@@ -3,29 +3,6 @@ Option Strict On
 Option Compare Binary
 Option Infer Off
 
-Imports System.Windows
-Imports System.Windows.Input
-Imports System.Windows.Controls
-
-'Imports System.Buffers.Text
-'Imports System.ComponentModel.DataAnnotations
-'Imports System.IO
-'Imports System.Net.WebRequestMethods
-'Imports System.Reflection.Emit
-'Imports System.Threading
-'Imports System.Buffers.Text
-'Imports System.Configuration
-'Imports System.Net.Security
-'Imports System.Reflection
-'Imports System.Runtime.InteropServices.JavaScript.JSType
-'Imports System.Windows.Media.Animation
-'Imports System.Buffers.Text
-'Imports System.ComponentModel.DataAnnotations
-'Imports System.IO
-'Imports System.Net.WebRequestMethods
-'Imports System.Reflection.Emit
-'Imports System.Threading
-
 Partial Friend Class ColorDlgWindow
 
 #Region "Global"
@@ -115,7 +92,7 @@ Partial Friend Class ColorDlgWindow
                 .B = RgbWorkB
             End With
             .RgbWorkContrastColor =
-                OSNW.Graphics.ColorUtilities.ContrastingBw(.RgbWorkColor)
+                OSNW.Graphics.ColorUtilities.ContrastingBW(.RgbWorkColor)
             .RgbWorkSolidBrush =
                 New System.Windows.Media.SolidColorBrush(.RgbWorkColor)
             .RgbWorkContrastSolidBrush =

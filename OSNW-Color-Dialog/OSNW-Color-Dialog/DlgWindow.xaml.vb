@@ -3,11 +3,6 @@ Option Strict On
 Option Compare Binary
 Option Infer Off
 
-Imports System.Text.RegularExpressions
-Imports System.Windows
-Imports System.Windows.Controls
-Imports System.Windows.Input
-
 ' NOTE: <UseWPF>true</UseWPF> may need to be added to the dialogs'
 ' <projectname>.vbproj file.
 '   https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props-desktop

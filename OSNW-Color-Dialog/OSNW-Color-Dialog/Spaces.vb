@@ -3,7 +3,6 @@ Option Strict On
 Option Compare Binary
 Option Infer Off
 
-Imports System.Windows
 Imports System.Windows.Input
 
 Partial Friend Class ColorDlgWindow
@@ -515,12 +514,12 @@ Partial Friend Class ColorDlgWindow
 #Region "HSx tabs"
     ' These are routines shared by HSL and HSV.
 
-    '''' <summary>
-    '''' Distributes the impact of the associated change.
-    '''' </summary>
-    '''' <param name="baseH">Specifies the hue component.</param>
-    '''' <param name="baseS">Specifies the saturation component.</param>
-    '''' <param name="baseL">Specifies the value component.</param>
+    ''' <summary>
+    ''' Distributes the impact of the associated change.
+    ''' </summary>
+    ''' <param name="baseH">Specifies the hue component.</param>
+    ''' <param name="baseS">Specifies the saturation component.</param>
+    ''' <param name="baseL">Specifies the value component.</param>
     Private Sub UpdateBaseValuesFromHSL(ByVal baseH As System.Double,
         ByVal baseS As System.Double, ByVal baseL As System.Double)
 

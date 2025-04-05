@@ -35,6 +35,7 @@ Partial Friend Class ColorDlgWindow
 
 #Region "Dialog Model Event Utilities"
 
+    ' Maybe this would be activated to warn agoinst the loss of a selection that has been made.
     ''' <summary>
     ''' Evaluate whether there is any reason to consider aborting closure via
     ''' <c>CancelButton</c>, etc.
@@ -49,46 +50,14 @@ Partial Friend Class ColorDlgWindow
         Return False
     End Function
 
-    ''' <summary>
-    ''' Evaluate whether there is any reason to prevent closure.
-    ''' </summary>
-    ''' <returns><c>True</c> if closure via <c>CancelButton</c>, etc. should be
-    ''' prevented; otherwise, <c>False</c>.</returns>
-    Private Function BlockClose() As System.Boolean
-        ' DEV: Add code here to determine if closure should be prevented. If so,
-        ' display a message or other visual indication to explain the problem.
-        ' This can be left as is and returning False. It can also be deleted, or
-        ' commented out, to avoid the useless call.
-        Return False
-    End Function ' BlockClose
-
-    ''' <summary>
-    ''' Evaluate whether everything is ready to allow closure via
-    ''' <c>OkButton</c>.
-    ''' </summary>
-    ''' <returns><c>True</c> if everything is ready to allow closure via
-    ''' OkButton; otherwise, <c>False</c>.</returns>
-    Private Function OkToOk() As System.Boolean
-
-        ' DEV: The specific code here is unique to the sample dialog. The
-        ' underlying reason for the function may be of use in certain cases.
-        ' Add code here to determine if closure is ok. If not, display a message
-        ' or other visual indication to explain the problem. This can be similar
-        ' to below. It can also be deleted, or commented out, to avoid a useless
-        ' call.
-
-        Return True
-
-    End Function ' OkToOk
-
 #End Region ' "Dialog Model Event Utilities"
 
 #Region "Dialog Model Events"
 
     ''' <summary>
-    ''' Initializes the control data.
-    ''' Occurs when this <c>Window</c> is initialized. Backing fields and local
-    ''' variables can usually be set after arriving here. See
+    ''' Initializes the control data. Occurs when this <c>Window</c> is
+    ''' initialized. Backing fields and local variables can usually be set after
+    ''' arriving here. See 
     ''' <see cref="System.Windows.FrameworkElement.Initialized"/>.
     ''' </summary>
     Private Sub Window_Initialized(sender As Object, e As EventArgs) _
@@ -96,15 +65,15 @@ Partial Friend Class ColorDlgWindow
 
         ' No argument checking.
 
-        ''''''''''Try
+        ''''Try
         Me.Do_Window_Initialized(sender, e)
         Me.ClosingViaOk = False
-        ''''''''''Catch CaughtEx As System.Exception
-        ''''''''''    ' Report the unexpected exception.
-        ''''''''''    Dim CaughtBy As System.Reflection.MethodBase =
-        ''''''''''        System.Reflection.MethodBase.GetCurrentMethod()
-        ''''''''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
-        ''''''''''End Try
+        ''''Catch CaughtEx As System.Exception
+        ''''    ' Report the unexpected exception.
+        ''''    Dim CaughtBy As System.Reflection.MethodBase =
+        ''''        System.Reflection.MethodBase.GetCurrentMethod()
+        ''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
+        ''''End Try
 
     End Sub ' Window_Initialized
 
@@ -119,14 +88,14 @@ Partial Friend Class ColorDlgWindow
 
         ' No argument checking.
 
-        ''''''''''Try
+        ''''Try
         Me.Do_Window_Loaded(sender, e)
-        ''''''''''Catch CaughtEx As System.Exception
-        ''''''''''    ' Report the unexpected exception.
-        ''''''''''    Dim CaughtBy As System.Reflection.MethodBase =
-        ''''''''''        System.Reflection.MethodBase.GetCurrentMethod()
-        ''''''''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
-        ''''''''''End Try
+        ''''Catch CaughtEx As System.Exception
+        ''''    ' Report the unexpected exception.
+        ''''    Dim CaughtBy As System.Reflection.MethodBase =
+        ''''        System.Reflection.MethodBase.GetCurrentMethod()
+        ''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
+        ''''End Try
 
     End Sub ' Window_Loaded
 
@@ -150,62 +119,9 @@ Partial Friend Class ColorDlgWindow
             Exit Sub ' Early exit.
         End If
 
-        '' This is an option for an absolute rejection.
-        '' Do a local evaluation, or implement and call BlockClose(),
-        '' to determine if the closure should be ignored for some reason.
-        'If BlockClose() Then
-        '    e.Cancel = True
-        '    Exit Sub ' Early exit.
-        'End If
-
-        '' This is an option to make a choice.
-        '' Do a local evaluation, or implement and call WarnClose(), to
-        '' determine if the closure should be reconsidered for some reason.
-        '' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.window.closing?view=windowsdesktop-9.0#system-windows-window-closing
-        'If Me.WarnClose() Then
-        '    Dim Msg As System.String = "Allow close?"
-        '    Dim MsgResult As System.Windows.MessageBoxResult =
-        '        System.Windows.MessageBox.Show(Msg, "Approve closure",
-        '            System.Windows.MessageBoxButton.YesNo,
-        '            System.Windows.MessageBoxImage.Warning)
-        '    If MsgResult = MessageBoxResult.No Then
-        '        ' If user doesn't want to close, cancel closure.
-        '        e.Cancel = True
-        '        Exit Sub ' Early exit.
-        '    End If
-        'End If
-
         ' Falling through to here allows the closure to continue.
 
     End Sub ' Window_Closing
-
-    '''' <summary>
-    '''' Occurs when the window is about to close. See
-    '''' <see cref="System.Windows.Window.Closed"/>.
-    '''' </summary>
-    '''' <remarks>Once this event is raised, a window cannot be prevented from
-    '''' closing.</remarks>
-    'Private Sub Window_Closed(sender As Object, e As EventArgs) _
-    '    Handles Me.Closed
-
-    '    Throw New System.NotImplementedException(
-    '        $"Thrown by {System.Reflection.MethodBase.GetCurrentMethod}")
-    'End Sub ' Window_Closed
-
-    '''' <summary>
-    '''' Abandon the current dialog session.
-    '''' </summary>
-    '''' <remarks>
-    '''' This only responds to <c>CancelButton</c> or Escape; it does not
-    '''' respond to ALT+F4, System menu | Close, or the window's red X. See
-    '''' <see cref="Window_Closing"/>.
-    '''' </remarks>
-    'Private Sub CancelButton_Click(sender As Object, e As RoutedEventArgs) _
-    '    Handles CancelButton.Click
-
-    '    Throw New System.NotImplementedException(
-    '        $"Thrown by {System.Reflection.MethodBase.GetCurrentMethod}")
-    'End Sub ' CancelButton_Click
 
     ''' <summary>
     ''' Fill in any updates to the passed data then close the window.
@@ -215,30 +131,23 @@ Partial Friend Class ColorDlgWindow
 
         ' No argument checking.
 
-        ''''''''Try
-        ' Do a local evaluation, or implement and call OkToOk(), to determine
-        ' if the current status is suitable for closure.
-        If Me.OkToOk() Then
+        ''''Try
 
-            ' Set any return values.
-            Me.Red = CByte(Me.UnderlyingR)
-            Me.Green = CByte(Me.UnderlyingG)
-            Me.Blue = CByte(Me.UnderlyingB)
+        ' Set any return values.
+        Me.Red = CByte(Me.UnderlyingR)
+        Me.Green = CByte(Me.UnderlyingG)
+        Me.Blue = CByte(Me.UnderlyingB)
 
-            ' Get ready to shut down.
-            Me.ClosingViaOk = True
-            Me.DialogResult = True
+        ' Get ready to shut down.
+        Me.ClosingViaOk = True
+        Me.DialogResult = True
 
-            'Else
-            ' Display a message?
-            ' Ignore the click and wait for Cancel or correction.
-        End If
-        ''''''''Catch CaughtEx As System.Exception
-        ''''''''    ' Report the unexpected exception.
-        ''''''''    Dim CaughtBy As System.Reflection.MethodBase =
-        ''''''''        System.Reflection.MethodBase.GetCurrentMethod()
-        ''''''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
-        ''''''''End Try
+        ''''Catch CaughtEx As System.Exception
+        ''''    ' Report the unexpected exception.
+        ''''    Dim CaughtBy As System.Reflection.MethodBase =
+        ''''        System.Reflection.MethodBase.GetCurrentMethod()
+        ''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
+        ''''End Try
 
     End Sub ' OkButton_Click
 

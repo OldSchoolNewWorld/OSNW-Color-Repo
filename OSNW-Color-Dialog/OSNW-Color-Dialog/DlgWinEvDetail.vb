@@ -4,12 +4,14 @@ Option Compare Binary
 Option Infer Off
 
 Imports System.Windows
-Imports System.Windows.Input
 
 Partial Friend Class ColorDlgWindow
 
 #Region "Event Utilities"
 
+    ''' <summary>
+    ''' Set the tab visibility based on the associated properties.
+    ''' </summary>
     Private Sub InitializeTabVisibility()
         With Me
             .ConvertTabItem.Visibility =
@@ -33,6 +35,18 @@ Partial Friend Class ColorDlgWindow
         End With
     End Sub ' InitializeTabVisibility   
 
+    ''' <summary>
+    ''' Load the tool tips for the controls in the dialog.
+    ''' </summary>
+    ''' <remarks>
+    ''' The tool tips are set to provide information about the control and its
+    ''' function. This is done here to ensure that the tool tips are set after
+    ''' the controls are initialized and before they are displayed. This can be
+    ''' done in the XAML, but there are advantages to doing it this way. This
+    ''' approach reduces clutter in the XAML. It also allows for the use of
+    ''' constants to ensure consistent appearance or computed strings based on
+    ''' something known at startup.
+    ''' </remarks>
     Private Sub LoadToolTips()
         With Me
 
@@ -152,9 +166,7 @@ Partial Friend Class ColorDlgWindow
     End Sub ' Do_Window_Initialized
 
     Private Sub Do_Window_Loaded(sender As Object, e As RoutedEventArgs)
-
-        '''''''''''Try
-
+        ''''Try
         With Me
 
             ' Apply the incoming color component set.
@@ -215,35 +227,12 @@ Partial Friend Class ColorDlgWindow
             End If
 
         End With
-
-        '' Update visual items based on the incoming state.
-        'With Me
-
-        '    ' DEV: The specific code here is unique to the sample dialog. The
-        '    ' underlying reason for the Sub may be of use in certain cases.
-
-        '    '' Suppress having Red changed when SliderR moves to match Red.
-        '    '.SettingSliders = True
-        '    'Try
-        '    '    .SliderR.Value = .Red
-        '    '    .SliderG.Value = .Green
-        '    '    .SliderB.Value = .Blue
-        '    'Finally
-        '    '    ' Restore normal slider response.
-        '    '    .SettingSliders = False
-        '    'End Try
-
-        '    .UpdateVisuals()
-
-        'End With
-
-        '''''''''''Catch CaughtEx As System.Exception
-        '''''''''''    ' Report the unexpected exception.
-        '''''''''''    Dim CaughtBy As System.Reflection.MethodBase =
-        '''''''''''        System.Reflection.MethodBase.GetCurrentMethod()
-        '''''''''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
-        '''''''''''End Try
-
+        ''''Catch CaughtEx As System.Exception
+        ''''    ' Report the unexpected exception.
+        ''''    Dim CaughtBy As System.Reflection.MethodBase =
+        ''''        System.Reflection.MethodBase.GetCurrentMethod()
+        ''''    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
+        ''''End Try
     End Sub ' Do_Window_Loaded
 
 #End Region ' "Model Event Responses"

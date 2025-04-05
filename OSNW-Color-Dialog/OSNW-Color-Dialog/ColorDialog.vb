@@ -8,12 +8,13 @@ Imports System.IO
 Imports System.Windows
 
 ' TODO:
-' Add HTML color space.
-'   Done. Add HTML conversion to the dialog window.
-'   Done. Add HTML conversion to the dialog host.
-'   Add HTML entry to the demo application window.
+' Rename the icon file in the dialog and application.
+' Add exception handling and activate for dialog events.
+' Add ability to set Hue as an angle.
+' Confirm that text changes and drawing clicks only update UnderlyingRGB, as
+'   opposed to Red/Green/Blue. Alternatively, that the RGB values are only used
+'   to/from UnderlyingRGB.
 ' How to list copyrights for reference material?
-' Add string validation in the setter for Public Property HtmlColor.
 
 ' REF: OSNW-WPF-Custom-Dialog-Models
 ' https://github.com/OldSchoolNewWorld/OSNW-WPF-Custom-Dialog-Models
