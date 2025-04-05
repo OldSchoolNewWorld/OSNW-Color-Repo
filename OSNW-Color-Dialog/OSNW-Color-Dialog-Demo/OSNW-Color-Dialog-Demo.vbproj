@@ -19,4 +19,13 @@
     <Import Include="System.Windows.Shapes" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="OSNW.ColorDialog">
+      <HintPath>..\OSNW-Color-Dialog\bin\Debug\net8.0-windows8.0\OSNW.ColorDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="OSNW.ColorUtilities">
+      <HintPath>..\..\OSNW-Color-Utilities\OSNW-Color-Utilities\bin\Debug\net8.0-windows8.0\OSNW.ColorUtilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

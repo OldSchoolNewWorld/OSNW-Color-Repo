@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OSNW_Color_Dialog_Demo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="ColorDialog Demo" SizeToContent="WidthAndHeight" MinWidth="285"
+        MinHeight="75" WindowStartupLocation="CenterScreen">
+    <DockPanel x:Name="MainDockPanel" LastChildFill="True">
 
-    </Grid>
+        <DockPanel x:Name="BottomDockPanel" DockPanel.Dock="Bottom"
+                   LastChildFill="False" Margin="3">
+            <Button x:Name="ExitButton" DockPanel.Dock="Right" Content="E_xit"
+                    Height="25" Margin="0,3,6,3"
+                    ToolTip="Fix LoadToolTips!"/>
+            <Button x:Name="SelectButton" DockPanel.Dock="Right" Content="Select"
+                    Height="25" Margin="0,3,6,3"
+                    ToolTip="Fix LoadToolTips!"/>
+        </DockPanel>
+
+        <DockPanel x:Name="TopDockPanel" DockPanel.Dock="Bottom"
+                   LastChildFill="True">
+            <DockPanel x:Name="ConvertRgbStackPanel" LastChildFill="False"
+                       HorizontalAlignment="Center">
+                <StackPanel x:Name="HtmlStackPanel" DockPanel.Dock="Left" Margin="3,3,0,3">
+                    <Label>HTML</Label>
+                    <TextBox x:Name="ConvertHtmlTextBox" Text="#A1B2C3"
+                         ToolTip= "Fix LoadToolTips!">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel x:Name="RedStackPanel" DockPanel.Dock="Left" Margin="6,3,0,3">
+                    <Label>Red</Label>
+                    <TextBox x:Name="ConvertRgbRedTextBox" Text="RgbRed"
+                         ToolTip= "Fix LoadToolTips!">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel x:Name="GreenStackPanel" DockPanel.Dock="Left" Margin="6,3,0,3">
+                    <Label>Green</Label>
+                    <TextBox x:Name="ConvertRgbGreenTextBox"
+                                     Text="RgbGreen"
+                                     ToolTip= "Fix LoadToolTips!">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel x:Name="BlueStackPanel" DockPanel.Dock="Left" Margin="6,3,3,3">
+                    <Label>Blue</Label>
+                    <TextBox x:Name="ConvertRgbBlueTextBox"
+                                     Text="RgbBlue"
+                                     ToolTip="Fix LoadToolTips!">
+                    </TextBox>
+                </StackPanel>
+            </DockPanel>
+        </DockPanel>
+
+    </DockPanel>
 </Window>

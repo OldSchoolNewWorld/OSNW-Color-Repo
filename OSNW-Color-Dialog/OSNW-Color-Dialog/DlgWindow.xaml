@@ -1,0 +1,681 @@
+﻿<Window x:Class="ColorDlgWindow" x:ClassModifier="Friend"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OSNW.Dialog"
+        mc:Ignorable="d"
+        Title="Develop Visuals" SizeToContent="WidthAndHeight" MinWidth="370"
+        MinHeight="145" WindowStartupLocation="CenterScreen">
+    <DockPanel x:Name="MainDockPanel" LastChildFill="True">
+        
+        <DockPanel x:Name="BottomDockPanel" DockPanel.Dock="Bottom"
+                   LastChildFill="True" Margin="3">
+            <Button x:Name="OkButton" DockPanel.Dock="Right" Margin="0,3,3,3"
+                    ToolTip="Fix LoadToolTips!"
+                    IsDefault="True">O_k</Button>
+            <Button x:Name="CancelButton" DockPanel.Dock="Right"
+                    Margin="0,3,3,3" IsCancel="True"
+                    ToolTip="Fix LoadToolTips!">Cance_l</Button>
+            <Label x:Name="PreviewLabel" DockPanel.Dock="Right" Margin="0,3,3,3"
+                   HorizontalContentAlignment="Center"
+                   VerticalAlignment="Center">PREVIEW HERE</Label>
+            <DockPanel x:Name="ButtonsDockPanel" DockPanel.Dock="Right">
+                <StackPanel x:Name="ButtonStackPanel" DockPanel.Dock="Right"
+                            Width="auto" Height="auto" Orientation="Horizontal"
+                            Margin="3" HorizontalAlignment="Right">
+                    <Button x:Name="BottomButton6" Content="BottomButton6"
+                            Height="25" Margin="3" IsEnabled="False"
+                            Visibility="Collapsed"/>
+                    <Button x:Name="BottomButton5" Content="BottomButton5"
+                            Height="25" Margin="3" IsEnabled="False"
+                            Visibility="Collapsed"/>
+                    <Button x:Name="BottomButton4" Content="BottomButton4"
+                            Height="25" Margin="3" IsEnabled="False"
+                            Visibility="Collapsed"/>
+                    <Button x:Name="BottomButton3" Content="BottomButton3"
+                            Visibility="Collapsed"
+                            Height="25" Margin="3,3,3,3"/>
+                    <Button x:Name="RememberButton" Content="Remember"
+                            Height="25" Margin="3"
+                            ToolTip="Fix LoadToolTips!"/>
+                    <Button x:Name="RestoreButton" Content="Restore"
+                            Height="25" Margin="3"
+                            ToolTip="Fix LoadToolTips!"/>
+                </StackPanel>
+            </DockPanel>
+        </DockPanel>
+
+        <TabControl x:Name="ViewsTabControl" DockPanel.Dock="Top" Width="auto"
+                    Height="auto" Margin="3" TabStripPlacement="Top">
+            <TabItem x:Name="ConvertTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="ConvertTabTextBlock" Text="Convert"
+                        ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="ConvertDockPanel" LastChildFill="False"
+                           HorizontalAlignment="Center">
+                    <DockPanel x:Name="HtmlDockPanel" DockPanel.Dock="Bottom" HorizontalAlignment="Left">
+                        <StackPanel x:Name="HtmlStackPanel" Margin="12,0,6,6" Width="80">
+                            <Label HorizontalAlignment="Left">HTML</Label>
+                            <TextBox x:Name="ConvertHtmlTextBox" Text="#A1B2C3" Width="80"
+                                     ToolTip= "Fix LoadToolTips!" HorizontalAlignment="Left">
+                            </TextBox>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel x:Name="ConvertRgbDockPanel"
+                               DockPanel.Dock="Left" LastChildFill="False"
+                               Margin="12,0,6,6">
+                        <StackPanel x:Name="ConvertRgbStackPanel">
+                            <Label>Red</Label>
+                            <TextBox x:Name="ConvertRgbRedTextBox" Text="RgbRed"
+                                     ToolTip= "Fix LoadToolTips!">
+                            </TextBox>
+                            <Label Margin="0,3,0,0">Green</Label>
+                            <TextBox x:Name="ConvertRgbGreenTextBox"
+                                     Text="RgbGreen"
+                                     ToolTip= "Fix LoadToolTips!">
+                            </TextBox>
+                            <Label Margin="0,3,0,0">Blue</Label>
+                            <TextBox x:Name="ConvertRgbBlueTextBox"
+                                     Text="RgbBlue"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel x:Name="ConvertHslDockPanel"
+                               DockPanel.Dock="Left" LastChildFill="False"
+                               Margin="30,0,6,6">
+                        <StackPanel x:Name="ConvertHslStackPanel">
+                            <Label>Hue</Label>
+                            <TextBox x:Name="ConvertHslHueTextBox" Text="HslHue"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                            <Label Margin="0,3,0,0">Saturation</Label>
+                            <TextBox x:Name="ConvertHslSaturationTextBox"
+                                     Text="HslSaturation"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                            <Label Margin="0,3,0,0">Luminance</Label>
+                            <TextBox x:Name="ConvertHslLuminanceTextBox"
+                                     Text="HslLuminance"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel x:Name="ConvertHsvDockPanel"
+                               DockPanel.Dock="Left" LastChildFill="False"
+                               Margin="30,0,12,6">
+                        <StackPanel x:Name="ConvertHsvStackPanel">
+                            <Label>Hue</Label>
+                            <TextBox x:Name="ConvertHsvHueTextBox" Text="HsvHue"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                            <Label Margin="0,3,0,0">Saturation</Label>
+                            <TextBox x:Name="ConvertHsvSaturationTextBox"
+                                     Text="HsvSaturation"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                            <Label Margin="0,3,0,0">Value</Label>
+                            <TextBox x:Name="ConvertHsvValueTextBox"
+                                     Text="HsvValue"
+                                     ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="DefinedTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="DefinedTabTextBlock" Text="Defined"
+                        ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <StackPanel>
+                    <Label x:Name="DefinedComboBoxLabel"
+                           HorizontalAlignment="Center"
+                           Margin="3,3,3,0">Select defined color below</Label>
+                    <ComboBox x:Name="DefinedComboBox" MinWidth="100"
+                              Margin="3,0,3,3" HorizontalAlignment="Center"
+                              IsEditable="False"
+                              ToolTip="Fix LoadToolTips!">
+                        <!--
+                        The entries below are only for original design work.
+                        They are replaced when the window is created at runtime.
+                        -->
+                        <Label>Red</Label>
+                        <Label>Lime</Label>
+                    </ComboBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="RgbTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="RgbTabTextBlock" Text="RGB"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="RgbTabDockPanel" LastChildFill="False">
+                    <DockPanel x:Name="RgbSelectDockPanel" DockPanel.Dock="Top"
+                               LastChildFill="False">
+                        <Label x:Name="RgbBaseLabel" DockPanel.Dock="Top"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">RgbBaseLabel</Label>
+                        <DockPanel x:Name="RgbMiddleDockPanel"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center" Width="Auto"
+                                   Height="Auto" LastChildFill="False">
+                            <Image x:Name="RgbImage" Width="256" Height="256"
+                                   Margin="0,3,3,3" DockPanel.Dock="Right"
+                                   Source="/Resources/YttLogo256.bmp" Stretch="None"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Cursor="Cross"
+                                   ToolTip= "Fix LoadToolTips!"/>
+                            <Label x:Name="RgbYLabel" DockPanel.Dock="Right"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Margin="3,0,0,0" Content="RgbYLabel">
+                                <Label.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.LayoutTransform>
+                            </Label>
+                        </DockPanel>
+                        <Label x:Name="RgbXLabel" DockPanel.Dock="Top"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">RgbXLabel</Label>
+                    </DockPanel>
+                    <DockPanel x:Name="TweakRgbDockPanel" DockPanel.Dock="Top"
+                               LastChildFill="False"
+                               HorizontalAlignment="Center">
+                        <StackPanel x:Name="RedDockPanel">
+                            <Label x:Name="TweakRedLabel" DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center">Red</Label>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Background="Red" Margin="3">
+                                <Button x:Name="RedMM" Content="--" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="RedM" Content="-" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="RedP" Content="+" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="RedPP" Content="++" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="GreenDockPanel">
+                            <Label x:Name="TweakGreenLabel" DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center">Green</Label>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Background="Lime" Margin="3">
+                                <Button x:Name="GreenMM" Content="--"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="GreenM" Content="-" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="GreenP" Content="+" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="GreenPP" Content="++"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="BlueDockPanel">
+                            <Label x:Name="TweakBlueLabel" DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center">Blue</Label>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Background="Blue" Margin="3">
+                                <Button x:Name="BlueMM" Content="--" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="BlueM" Content="-" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="BlueP" Content="+" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                                <Button x:Name="BluePP" Content="++" Height="25"
+                                        Width="25" Margin="3"
+                                        ToolTip= "Fix LoadToolTips!"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="HslTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="HslTabTextBlock" Text="HSL"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="HslTabDockPanel" LastChildFill="False">
+                    <DockPanel x:Name="HslReflectDockPanel"
+                               DockPanel.Dock="Bottom"
+                               HorizontalAlignment="Center"
+                               LastChildFill="False">
+                        <Label x:Name="HslTweakHueLabel" Content="Hue: 123.45"/>
+                        <Label x:Name="HslTweakSaturationLabel"
+                               Content="Saturation: 123.45"/>
+                        <Label x:Name="HslTweakLuminanceLabel"
+                               Content="Luminance: 123.45"/>
+                    </DockPanel>
+                    <DockPanel x:Name="HslTweakDockPanel"
+                               DockPanel.Dock="Bottom" LastChildFill="False">
+                        <DockPanel x:Name="HslSelectHueDockPanel"
+                                   DockPanel.Dock="Left" Margin="3,0,0,0"
+                                   LastChildFill="False">
+                            <Label x:Name="HslSelectHueLabel"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" Content="Hue"/>
+                            <Image x:Name="HslSelectHueImage"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Width="256"
+                                   Height="256" Stretch="None"
+                                   Source="/Resources/YttLogo256.bmp"
+                                   ToolTip= "Fix LoadToolTips!"/>
+                        </DockPanel>
+                        <DockPanel x:Name="HslSelectSatLumPanel"
+                                   DockPanel.Dock="Left" Margin="3,0,3,0"
+                                   LastChildFill="False">
+                            <Label x:Name="HslYLabel" DockPanel.Dock="Left"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Margin="9,0,0,0" Content="Luminance">
+                                <Label.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.LayoutTransform>
+                            </Label>
+                            <Label x:Name="HslSelectSatLumLabel"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Content="Saturation / Luminance"/>
+                            <Label x:Name="HslXLabel"
+                                       DockPanel.Dock="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,0" Content="Saturation"/>
+                            <Image x:Name="HslSelectSatLumImage" 
+                                   DockPanel.Dock="Left"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Width="256"
+                                   Height="256" Stretch="None" Cursor="Cross"
+                                   Source="/Resources/YttLogo256.bmp"
+                                   ToolTip= "Fix LoadToolTips!"/>
+                        </DockPanel>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="HsvTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="HsvTabTextBlock" Text="HSV"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="HsvTabDockPanel" LastChildFill="False">
+                    <DockPanel x:Name="HsvReflectDockPanel"
+                               DockPanel.Dock="Bottom"
+                               HorizontalAlignment="Center"
+                               LastChildFill="False">
+                        <Label x:Name="HsvTweakHueLabel" Content="Hue: 123.45"/>
+                        <Label x:Name="HsvTweakSaturationLabel"
+                               Content="Saturation: 123.45"/>
+                        <Label x:Name="HsvTweakValueLabel"
+                               Content="Value: 123.45"/>
+                    </DockPanel>
+                    <DockPanel x:Name="HsvTweakDockPanel"
+                               DockPanel.Dock="Bottom" LastChildFill="False">
+                        <DockPanel x:Name="HsvSelectHueDockPanel"
+                                   DockPanel.Dock="Left" Margin="3,0,0,0"
+                                   LastChildFill="False">
+                            <Label x:Name="HsvSelectHueLabel"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" Content="Hue"/>
+                            <Image x:Name="HsvSelectHueImage"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Width="256"
+                                   Height="256" Stretch="None"
+                                   Source="/Resources/YttLogo256.bmp"
+                                   ToolTip= "Fix LoadToolTips!"/>
+                        </DockPanel>
+                        <DockPanel x:Name="HsvSelectSatValPanel"
+                                   DockPanel.Dock="Left" Margin="3,0,3,0"
+                                   LastChildFill="False">
+                            <Label x:Name="HsvYLabel" DockPanel.Dock="Left"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Margin="9,0,0,0" Content="Value">
+                                <Label.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.LayoutTransform>
+                            </Label>
+                            <Label x:Name="HsvSelectSatValLabel"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Content="Saturation / Value"/>
+                            <Label x:Name="HsvXLabel"
+                                       DockPanel.Dock="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,0" Content="Saturation"/>
+                            <Image x:Name="HsvSelectSatValImage"
+                                   DockPanel.Dock="Left"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Width="256"
+                                   Height="256" Stretch="None" Cursor="Cross"
+                                   Source="/Resources/YttLogo256.bmp"
+                                   ToolTip= "CFix LoadToolTips!"/>
+                        </DockPanel>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="ShadeTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="ShadeTabTextBlock" Text="Shade"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="ShadeTabDockPanel" LastChildFill="False">
+                    <StackPanel x:Name="ShadeReflectStackPanel"
+                                DockPanel.Dock="Bottom" Margin="0,15,0,0"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Label x:Name="ShadeTweakRedLabel"
+                               VerticalAlignment="Center" Content="Red: 123"/>
+                        <Label x:Name="ShadeTweakGreenLabel"
+                               Content="Green: 123" VerticalAlignment="Center"/>
+                        <Label x:Name="ShadeTweakBlueLabel" Content="Blue: 123"
+                               VerticalAlignment="Center"/>
+                        <Label x:Name="ShadeTweakHueLabel" Content="Hue: 123.123"
+                               VerticalAlignment="Center"/>
+                        <Label x:Name="ShadeTweakFactorLabel"
+                               DockPanel.Dock="Top"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">Factor: 0.123</Label>
+                    </StackPanel>
+                    <DockPanel x:Name="ShadeTweakDockPanel"
+                               DockPanel.Dock="Bottom" LastChildFill="False">
+                        <Image x:Name="ShadeImage" DockPanel.Dock="Top"
+                               Width="201" Height="50"
+                               HorizontalAlignment="Center" Margin="0,6,0,0"
+                               VerticalAlignment="Center" Cursor="Cross"
+                               Source="/Resources/YttLogo256.bmp" Stretch="None"
+                               ToolTip= "Fix LoadToolTips!"/>
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Top" Margin="3"
+                                    HorizontalAlignment="Center">
+                            <Button x:Name="ShadeMM" Content="--" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                            <Button x:Name="ShadeM" Content="-" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                            <Button x:Name="ShadeP" Content="+" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                            <Button x:Name="ShadePP" Content="++" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                        </StackPanel>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="TintTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="TintTabTextBlock" Text="Tint"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="TintTabDockPanel" LastChildFill="False">
+                    <StackPanel x:Name="TintReflectStackPanel"
+                                DockPanel.Dock="Bottom" Margin="0,15,0,0"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Label x:Name="TintTweakRedLabel"
+                               VerticalAlignment="Center" Content="Red: 123"/>
+                        <Label x:Name="TintTweakGreenLabel"
+                               Content="Green: 123" VerticalAlignment="Center"/>
+                        <Label x:Name="TintTweakBlueLabel" Content="Blue: 123"
+                               VerticalAlignment="Center"/>
+                        <Label x:Name="TintTweakHueLabel" Content="Hue: 123.123"
+                               VerticalAlignment="Center"/>
+                        <Label x:Name="TintTweakFactorLabel"
+                               DockPanel.Dock="Top"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">Factor: 0.123</Label>
+                    </StackPanel>
+                    <DockPanel x:Name="TintTweakDockPanel"
+                               DockPanel.Dock="Bottom" LastChildFill="False">
+                        <Image x:Name="TintImage" DockPanel.Dock="Top"
+                               Width="201" Height="50"
+                               HorizontalAlignment="Center" Margin="0,6,0,0"
+                               VerticalAlignment="Center" Cursor="Cross"
+                               Source="/Resources/YttLogo256.bmp" Stretch="None"
+                               ToolTip= "Fix LoadToolTips!"/>
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Top" Margin="3"
+                                    HorizontalAlignment="Center">
+                            <Button x:Name="TintMM" Content="--" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                            <Button x:Name="TintM" Content="-" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                            <Button x:Name="TintP" Content="+" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                            <Button x:Name="TintPP" Content="++" Height="25"
+                                    Width="25" Margin="3"
+                                    ToolTip="Fix LoadToolTips!"/>
+                        </StackPanel>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="ToneTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="ToneTabTextBlock" Text="Tone"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="ToneTabDockPanel" LastChildFill="False">
+                    <DockPanel x:Name="ToneSelectDockPanel" DockPanel.Dock="Top"
+                               LastChildFill="False">
+                        <DockPanel x:Name="ToneMiddleDockPanel"
+                                   DockPanel.Dock="Top" Margin="0,6,0,0"
+                                   HorizontalAlignment="Center" Width="Auto"
+                                   Height="Auto" LastChildFill="False">
+                            <Image x:Name="ToneImage" Width="256" Height="256"
+                                   Margin="0,3,3,3" DockPanel.Dock="Right"
+                                   Source="/Resources/YttLogo256.bmp" Stretch="None"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" Cursor="Cross"
+                                   ToolTip="Fix LoadToolTips!"/>
+                            <Label x:Name="ToneYLabel" DockPanel.Dock="Right"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Margin="9,0,0,0" Content="Tone Factor">
+                                <Label.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.LayoutTransform>
+                            </Label>
+                        </DockPanel>
+                        <Label x:Name="ToneXLabel" DockPanel.Dock="Top"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">Gray Level</Label>
+                    </DockPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0"
+                                    DockPanel.Dock="Top" HorizontalAlignment="Center">
+                        <Label x:Name="ToneBaseBaseLabel" Content="Base --> "
+                                   VerticalAlignment="Center"/>
+                        <Label x:Name="ToneBaseRedLabel" Content="Red:123"
+                                   VerticalAlignment="Center"/>
+                        <Label x:Name="ToneBaseGreenLabel"
+                                   Content="Green:123"
+                                   VerticalAlignment="Center"/>
+                        <Label x:Name="ToneBaseBlueLabel"
+                                   Content="Blue:123"
+                                   VerticalAlignment="Center"/>
+                        <Label x:Name="ToneTweakHueLabel" Content="Hue: 123.123"
+                               VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Top"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <StackPanel x:Name="ToneTweakGrayDockPanel">
+                            <Label x:Name="ToneTweakGrayLabel"
+                                   DockPanel.Dock="Top" Content="Gray Level"
+                                   HorizontalAlignment="Center"></Label>
+                            <StackPanel Orientation="Horizontal" Margin="3"
+                                        HorizontalAlignment="Center">
+                                <Button x:Name="ToneGrayMM" Content="--"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                                <Button x:Name="ToneGrayM" Content="-"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                                <Button x:Name="ToneGrayP" Content="+"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                                <Button x:Name="ToneGrayPP" Content="++"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="ToneTweakFactorDockPanel"
+                                    Margin="18,0,0,0">
+                            <Label x:Name="ToneTweakFactorLabel"
+                                   DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center"
+                                   Content="Tone Factor"/>
+                            <StackPanel Orientation="Horizontal" Margin="3"
+                                        HorizontalAlignment="Center">
+                                <Button x:Name="ToneFactorMM" Content="--"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                                <Button x:Name="ToneFactorM" Content="-"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                                <Button x:Name="ToneFactorP" Content="+"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                                <Button x:Name="ToneFactorPP" Content="++"
+                                        Height="25" Width="25" Margin="3"
+                                        ToolTip="Fix LoadToolTips!"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="ToneReflectStackPanel"                                
+                                DockPanel.Dock="Top"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem x:Name="BlendTabItem">
+                <TabItem.Header>
+                    <TextBlock x:Name="BlendTabTextBlock" Text="Blend"
+                               ToolTip="Fix LoadToolTips!">
+                    </TextBlock>
+                </TabItem.Header>
+                <DockPanel x:Name="BlendStackPanel" LastChildFill="False" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel x:Name="BlendColor1StackPanel" DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,12,0,0">
+                        <Label DockPanel.Dock="Top" Margin="0,0,0,0" Width="60" VerticalAlignment="Center">Color 1</Label>
+                        <StackPanel>
+                            <Label Margin="0,0,0,0" Width="60">Red</Label>
+                            <TextBox x:Name="BlendRgb1RedTextBox" Text="RgbRed"
+                                     ToolTip="Fix LoadToolTips!"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="6,0,0,0">
+                            <Label Margin="0,0,0,0" Width="60">Green</Label>
+                            <TextBox x:Name="BlendRgb1GreenTextBox"
+                                     Text="RgbGreen"
+                                     ToolTip="Fix LoadToolTips!"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="6,0,0,0">
+                            <Label Margin="0,0,0,0" Width="60">Blue</Label>
+                            <TextBox x:Name="BlendRgb1BlueTextBox"
+                                     Text="RgbBlue"
+                                     ToolTip="Fix LoadToolTips!"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="6,0,0,0">
+                            <Label Margin="0,0,0,0" Width="60">Ratio</Label>
+                            <TextBox x:Name="BlendRgb1RatioTextBox"
+                                     Text="Ratio"
+                                     ToolTip="Fix LoadToolTips!"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="BlendColor2StackPanel" DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,12,0,12">
+                        <Label DockPanel.Dock="Top" Margin="0,0,0,0" Width="60" VerticalAlignment="Center">Color 2</Label>
+                        <StackPanel>
+                            <Label Margin="0,0,0,0" Width="60">Red</Label>
+                            <TextBox x:Name="BlendRgb2RedTextBox"
+                                     Text="RgbRed" ToolTip= "Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="6,0,0,0">
+                            <Label Margin="0,0,0,0" Width="60">Green</Label>
+                            <TextBox x:Name="BlendRgb2GreenTextBox"
+                                     Text="RgbGreen" ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="6,0,0,0">
+                            <Label Margin="0,0,0,0" Width="60">Blue</Label>
+                            <TextBox x:Name="BlendRgb2BlueTextBox"
+                                     Text="RgbBlue" ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="6,0,0,0">
+                            <Label Margin="0,0,0,0" Width="60">Ratio</Label>
+                            <TextBox x:Name="BlendRgb2RatioTextBox"
+                                     Text="Ratio" ToolTip="Fix LoadToolTips!">
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</Window>

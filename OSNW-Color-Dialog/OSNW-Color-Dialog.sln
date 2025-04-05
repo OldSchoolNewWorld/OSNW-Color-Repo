@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OSNW-Color-Dialog", "OSNW-Color-Dialog\OSNW-Color-Dialog.vbproj", "{72E2678E-EADD-425E-9CC9-0B0B011AAA08}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OSNW-Color-Dialog-Demo", "OSNW-Color-Dialog-Demo\OSNW-Color-Dialog-Demo.vbproj", "{527CE0E2-C2B0-4662-AA08-D15601757B6B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72E2678E-EADD-425E-9CC9-0B0B011AAA08} = {72E2678E-EADD-425E-9CC9-0B0B011AAA08}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
