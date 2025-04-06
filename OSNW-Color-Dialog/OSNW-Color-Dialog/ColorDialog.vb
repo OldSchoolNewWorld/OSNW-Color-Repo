@@ -8,7 +8,12 @@ Imports System.IO
 Imports System.Windows
 
 ' TODO:
+' Add shared values to be referenced by the ColorDialog and ColorDlgWindow.
+'   Initialization values.
+'   Others?
+'   Add subroutine to apply at startup
 ' Add exception handling and activate for dialog events.
+'   Already in ExcepModelUtil?
 ' Add ability to set Hue as an angle.
 ' Consider whether text changes and drawing clicks should only update
 '   UnderlyingRGB, as opposed to RgbWorkR/RgbWorkG/RgbWorkB. Also consider
