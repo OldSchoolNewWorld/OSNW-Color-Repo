@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ShareVals</RootNamespace>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>ShareVals</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+</Project>

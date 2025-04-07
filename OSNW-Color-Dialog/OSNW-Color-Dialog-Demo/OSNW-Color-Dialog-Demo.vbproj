@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
     <RootNamespace>OSNW_Color_Dialog_Demo</RootNamespace>
     <UseWPF>true</UseWPF>
   </PropertyGroup>

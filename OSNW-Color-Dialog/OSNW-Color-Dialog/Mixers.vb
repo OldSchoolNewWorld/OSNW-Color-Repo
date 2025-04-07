@@ -4,6 +4,7 @@ Option Compare Binary
 Option Infer Off
 
 Imports System.Windows.Input
+Imports SCDV = OSNW.Dialog.ColorDlgWindow.SharedColorDlgValues
 
 Partial Friend Class ColorDlgWindow
 
@@ -73,10 +74,14 @@ Partial Friend Class ColorDlgWindow
         With Me
 
             ' Update the displayed per-component values.
-            .ShadeTweakRedLabel.Content = .DoubleValueStr(REDWORD, .UnderlyingR)
-            .ShadeTweakGreenLabel.Content = .DoubleValueStr(GREENWORD, .UnderlyingG)
-            .ShadeTweakBlueLabel.Content = .DoubleValueStr(BLUEWORD, .UnderlyingB)
-            .ShadeTweakHueLabel.Content = .DoubleValueStr(HUEWORD, .ShadeStartH)
+            .ShadeTweakRedLabel.Content =
+                .DoubleValueStr(SCDV.REDWORD, .UnderlyingR)
+            .ShadeTweakGreenLabel.Content =
+                .DoubleValueStr(SCDV.GREENWORD, .UnderlyingG)
+            .ShadeTweakBlueLabel.Content =
+                .DoubleValueStr(SCDV.BLUEWORD, .UnderlyingB)
+            .ShadeTweakHueLabel.Content =
+                .DoubleValueStr(SCDV.HUEWORD, .ShadeStartH)
             .ShadeTweakFactorLabel.Content = .DoubleValueStr(
                 "Factor", .ShadeWorkFactor / 1000.0)
 
@@ -233,10 +238,14 @@ Partial Friend Class ColorDlgWindow
         With Me
 
             ' Update the displayed per-component values.
-            .TintTweakRedLabel.Content = .DoubleValueStr(REDWORD, .UnderlyingR)
-            .TintTweakGreenLabel.Content = .DoubleValueStr(GREENWORD, .UnderlyingG)
-            .TintTweakBlueLabel.Content = .DoubleValueStr(BLUEWORD, .UnderlyingB)
-            .TintTweakHueLabel.Content = .DoubleValueStr(HUEWORD, .TintStartH)
+            .TintTweakRedLabel.Content =
+                .DoubleValueStr(SCDV.REDWORD, .UnderlyingR)
+            .TintTweakGreenLabel.Content =
+                .DoubleValueStr(SCDV.GREENWORD, .UnderlyingG)
+            .TintTweakBlueLabel.Content =
+                .DoubleValueStr(SCDV.BLUEWORD, .UnderlyingB)
+            .TintTweakHueLabel.Content =
+                .DoubleValueStr(SCDV.HUEWORD, .TintStartH)
             .TintTweakFactorLabel.Content = .DoubleValueStr(
                 "Factor", .TintWorkFactor / 1000.0)
 
@@ -390,10 +399,13 @@ Partial Friend Class ColorDlgWindow
         With Me
 
             ' Update the displayed per-component values for the base reference.
-            .ToneBaseRedLabel.Content = .ByteValueStr(REDWORD, .ToneStartR)
-            .ToneBaseGreenLabel.Content = .ByteValueStr(GREENWORD, .ToneStartG)
-            .ToneBaseBlueLabel.Content = .ByteValueStr(BLUEWORD, .ToneStartB)
-            .ToneTweakHueLabel.Content = .DoubleValueStr(HUEWORD, .ToneStartH)
+            .ToneBaseRedLabel.Content = .ByteValueStr(SCDV.REDWORD, .ToneStartR)
+            .ToneBaseGreenLabel.Content =
+                .ByteValueStr(SCDV.GREENWORD, .ToneStartG)
+            .ToneBaseBlueLabel.Content =
+                .ByteValueStr(SCDV.BLUEWORD, .ToneStartB)
+            .ToneTweakHueLabel.Content =
+                .DoubleValueStr(SCDV.HUEWORD, .ToneStartH)
 
             ' Limit visibility until a selection has been made.
             If .ToneValuesClicked Then

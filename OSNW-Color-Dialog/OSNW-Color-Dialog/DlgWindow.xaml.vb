@@ -54,23 +54,6 @@ Friend Class ColorDlgWindow
 
 #Region "Localized Constants"
 
-    ' Components for bad entries in text boxes.
-    Private Const BADTEXTR As System.Byte = 238
-    Private Const BADTEXTG As System.Byte = 170
-    Private Const BADTEXTB As System.Byte = 170
-
-    Private Const TONEINITIALFACTOR As System.Int32 = 0
-    Private Const TONEINITIALGRAY As System.Byte = 192
-
-    Private Const BLENDINITIALRGBRATIO1 As System.Double = 100.0
-    Private Const BLENDINITIALRGBRATIO2 As System.Double = 0.0
-
-    ' Consistent strings.
-    Private Const REDWORD As System.String = "Red"
-    Private Const GREENWORD As System.String = "Green"
-    Private Const BLUEWORD As System.String = "Blue"
-    Private Const HUEWORD As System.String = "Hue"
-
     ' Frequent reuse and shorthand.
     Private Const HFF As System.Int32 = &HFF << 24
 
@@ -80,6 +63,45 @@ Friend Class ColorDlgWindow
 #End Region ' Localized Constants
 
 #Region "Localized Types"
+
+    Public Class SharedColorDlgValues
+
+        ' Components for bad entries in text boxes.
+        Public Const BADTEXTR As System.Byte = 238
+        Public Const BADTEXTG As System.Byte = 170
+        Public Const BADTEXTB As System.Byte = 170
+
+        ' Consistent strings.
+        Public Const REDWORD As System.String = "Red"
+        Public Const GREENWORD As System.String = "Green"
+        Public Const BLUEWORD As System.String = "Blue"
+        Public Const HUEWORD As System.String = "Hue"
+
+        ' Initialization constants.
+
+        ' Window items.
+        Public Const DEFAULTRESIZEMODE As System.Windows.ResizeMode =
+        System.Windows.ResizeMode.CanResize
+        Public Const DEFAULTDIALOGTITLE As System.String = "Color Workspace"
+        Public Const DEFAULTSHOWINTASKBAR As System.Boolean = False
+        ' Color dialog items.
+        Public Const DEFAULTSHOWCONVERTTAB As System.Boolean = True
+        Public Const DEFAULTSHOWDEFINEDTAB As System.Boolean = True
+        Public Const DEFAULTSHOWRGBTTAB As System.Boolean = True
+        Public Const DEFAULTSHOWHSLTAB As System.Boolean = True
+        Public Const DEFAULTSHOWHSVTAB As System.Boolean = True
+        Public Const DEFAULTSHOWSHADETAB As System.Boolean = True
+        Public Const DEFAULTSHOWTINTTAB As System.Boolean = True
+        Public Const DEFAULTSHOWTONETAB As System.Boolean = True
+        Public Const DEFAULTSHOWBLENDTAB As System.Boolean = True
+
+        Public Const TONEINITIALFACTOR As System.Int32 = 0
+        Public Const TONEINITIALGRAY As System.Byte = 192
+
+        Public Const BLENDINITIALRGBRATIO1 As System.Double = 100.0
+        Public Const BLENDINITIALRGBRATIO2 As System.Double = 0.0
+
+    End Class ' SharedColorDlgValues
 
     ' Values for LastRgbChange.
     Private Enum LastRgbChangeEnum

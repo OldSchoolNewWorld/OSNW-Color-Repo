@@ -3,6 +3,8 @@ Option Strict On
 Option Compare Binary
 Option Infer Off
 
+Imports SCDV = OSNW.Dialog.ColorDlgWindow.SharedColorDlgValues
+
 Partial Friend Class ColorDlgWindow
 
 #Region "Global"
@@ -41,9 +43,9 @@ Partial Friend Class ColorDlgWindow
         With Me.PreviewLabel
             .Background = Me.RgbWorkSolidBrush
             .Foreground = Me.RgbWorkContrastSolidBrush
-            .Content = $"{Me.ByteValueStr(REDWORD, RgbWorkR)}" &
-                       $" {Me.ByteValueStr(GREENWORD, RgbWorkG)}" &
-                       $" {Me.ByteValueStr(BLUEWORD, RgbWorkB)}"
+            .Content = $"{Me.ByteValueStr(SCDV.REDWORD, RgbWorkR)}" &
+                       $" {Me.ByteValueStr(SCDV.GREENWORD, RgbWorkG)}" &
+                       $" {Me.ByteValueStr(SCDV.BLUEWORD, RgbWorkB)}"
         End With
     End Sub
 
