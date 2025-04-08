@@ -154,6 +154,12 @@ Partial Friend Class ColorDlgWindow
     Private Sub Do_Window_Initialized(sender As Object, e As EventArgs)
         With Me
 
+            ' Window items.
+            .ResizeMode = SCDV.DEFAULTRESIZEMODE
+            .Title = SCDV.DEFAULTDIALOGTITLE
+            .ShowInTaskbar = SCDV.DEFAULTSHOWINTASKBAR
+            .WindowStartupLocation = SCDV.DEFAULTWINDOWSTARTUPLOCATION
+
             ' Initialize the control data.
             .ConvertTabPushing = False
             .ShadeFactorClicked = False

@@ -336,7 +336,7 @@ Partial Friend Class ColorDlgWindow
             OptionPreviewColor =
                 New System.Windows.Media.SolidColorBrush(OneDefinedColor.Color)
             OptionTextColor = New System.Windows.Media.SolidColorBrush(
-                OSNW.Graphics.ColorUtilities.ContrastingBw(OneDefinedColor.Color))
+                OSNW.Graphics.ColorUtilities.ContrastingBW(OneDefinedColor.Color))
 
             ' Set up the label shown for this option.
             Dim NewLabel As New System.Windows.Controls.Label
