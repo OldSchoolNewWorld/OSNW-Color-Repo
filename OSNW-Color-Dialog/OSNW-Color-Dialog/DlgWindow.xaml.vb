@@ -66,24 +66,25 @@ Friend Class ColorDlgWindow
 
     Public Class SharedColorDlgValues
 
-        ' Components for bad entries in text boxes.
-        Public Const BADTEXTR As System.Byte = 238
-        Public Const BADTEXTG As System.Byte = 170
-        Public Const BADTEXTB As System.Byte = 170
-
-        ' Consistent strings.
-        Public Const REDWORD As System.String = "Red"
-        Public Const GREENWORD As System.String = "Green"
-        Public Const BLUEWORD As System.String = "Blue"
-        Public Const HUEWORD As System.String = "Hue"
+        ' These are public members of the Friend ColorDlgWindow class. As such,
+        ' they are reachable by the dialog host, particulary during initialization.
 
         ' Initialization constants.
 
         ' Window items.
         Public Const DEFAULTRESIZEMODE As System.Windows.ResizeMode =
-        System.Windows.ResizeMode.CanResize
+            System.Windows.ResizeMode.CanResize
         Public Const DEFAULTDIALOGTITLE As System.String = "Color Workspace"
         Public Const DEFAULTSHOWINTASKBAR As System.Boolean = False
+        Public Const DEFAULTWINDOWSTARTUPLOCATION As _
+            System.Windows.WindowStartupLocation =
+            System.Windows.WindowStartupLocation.Manual ' Matches default.
+
+        ' Background color components for bad entries in text boxes.
+        Public Const BADTEXTR As System.Byte = 238
+        Public Const BADTEXTG As System.Byte = 170
+        Public Const BADTEXTB As System.Byte = 170
+
         ' Color dialog items.
         Public Const DEFAULTSHOWCONVERTTAB As System.Boolean = True
         Public Const DEFAULTSHOWDEFINEDTAB As System.Boolean = True
@@ -95,11 +96,19 @@ Friend Class ColorDlgWindow
         Public Const DEFAULTSHOWTONETAB As System.Boolean = True
         Public Const DEFAULTSHOWBLENDTAB As System.Boolean = True
 
+        ' Tone values.
         Public Const TONEINITIALFACTOR As System.Int32 = 0
         Public Const TONEINITIALGRAY As System.Byte = 192
 
+        ' Blend values.
         Public Const BLENDINITIALRGBRATIO1 As System.Double = 100.0
         Public Const BLENDINITIALRGBRATIO2 As System.Double = 0.0
+
+        ' Consistency strings.
+        Public Const REDWORD As System.String = "Red"
+        Public Const GREENWORD As System.String = "Green"
+        Public Const BLUEWORD As System.String = "Blue"
+        Public Const HUEWORD As System.String = "Hue"
 
     End Class ' SharedColorDlgValues
 

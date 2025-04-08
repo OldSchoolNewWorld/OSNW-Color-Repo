@@ -214,7 +214,8 @@ Public Class ColorDialog
     ''' </returns>
     <System.ComponentModel.DefaultValue(
         System.Windows.WindowStartupLocation.Manual)>
-    Public Property WindowStartupLocation As WindowStartupLocation
+    Public Property WindowStartupLocation As _
+        System.Windows.WindowStartupLocation
         Get
             Return Me.m_WindowStartupLocation
         End Get
@@ -674,34 +675,21 @@ Public Class ColorDialog
             ' Set the initial Window features.
             '            .m_DialogResult = Nothing ' Matches default.
             '            .m_Owner = Nothing ' Matches default.
-            .m_ResizeMode =
-                SCDV.DEFAULTRESIZEMODE
-            .m_ShowInTaskbar =
-                SCDV.DEFAULTSHOWINTASKBAR
-            .m_Title =
-                SCDV.DEFAULTDIALOGTITLE
-            '            .m_WindowStartupLocation =
-            '                WindowStartupLocation.Manual ' Matches default.
+            .m_ResizeMode = SCDV.DEFAULTRESIZEMODE
+            .m_ShowInTaskbar = SCDV.DEFAULTSHOWINTASKBAR
+            .m_Title = SCDV.DEFAULTDIALOGTITLE
+            .m_WindowStartupLocation = SCDV.DEFAULTWINDOWSTARTUPLOCATION
 
             ' Set the initial tab visibility to defaults.
-            .m_ShowConvertTab =
-                SCDV.DEFAULTSHOWCONVERTTAB
-            .m_ShowDefinedTab =
-                SCDV.DEFAULTSHOWDEFINEDTAB
-            .m_ShowRgbTab =
-                SCDV.DEFAULTSHOWRGBTTAB
-            .m_ShowHslTab =
-                SCDV.DEFAULTSHOWHSLTAB
-            .m_ShowHsvTab =
-                SCDV.DEFAULTSHOWHSVTAB
-            .m_ShowShadeTab =
-                SCDV.DEFAULTSHOWSHADETAB
-            .m_ShowTintTab =
-                SCDV.DEFAULTSHOWTINTTAB
-            .m_ShowToneTab =
-                SCDV.DEFAULTSHOWTONETAB
-            .m_ShowBlendTab =
-                SCDV.DEFAULTSHOWBLENDTAB
+            .m_ShowConvertTab = SCDV.DEFAULTSHOWCONVERTTAB
+            .m_ShowDefinedTab = SCDV.DEFAULTSHOWDEFINEDTAB
+            .m_ShowRgbTab = SCDV.DEFAULTSHOWRGBTTAB
+            .m_ShowHslTab = SCDV.DEFAULTSHOWHSLTAB
+            .m_ShowHsvTab = SCDV.DEFAULTSHOWHSVTAB
+            .m_ShowShadeTab = SCDV.DEFAULTSHOWSHADETAB
+            .m_ShowTintTab = SCDV.DEFAULTSHOWTINTTAB
+            .m_ShowToneTab = SCDV.DEFAULTSHOWTONETAB
+            .m_ShowBlendTab = SCDV.DEFAULTSHOWBLENDTAB
 
             ' DEV: The ColorDlgWindow is configured with a default icon that
             ' is set in its XAML layout. If m_Icon for the ColorDialog is left at

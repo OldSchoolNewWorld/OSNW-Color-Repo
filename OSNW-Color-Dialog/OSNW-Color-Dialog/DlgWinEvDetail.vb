@@ -182,8 +182,7 @@ Partial Friend Class ColorDlgWindow
             ' Create an original background color. Establish the bad text color.
             .GoodBackgroundBrush = .ConvertRgbRedTextBox.Background
             Dim BadBackgroundColor As New System.Windows.Media.Color With {
-                .A = &HFF, .R = SCDV.BADTEXTR,
-                .G = SCDV.BADTEXTG,
+                .A = &HFF, .R = SCDV.BADTEXTR, .G = SCDV.BADTEXTG,
                 .B = SCDV.BADTEXTB}
             .BadBackgroundBrush =
                 New System.Windows.Media.SolidColorBrush(BadBackgroundColor)

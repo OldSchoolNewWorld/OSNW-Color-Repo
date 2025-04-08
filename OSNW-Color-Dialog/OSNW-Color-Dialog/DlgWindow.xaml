@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OSNW.Dialog"
         mc:Ignorable="d"
         Title="Develop Visuals" SizeToContent="WidthAndHeight" MinWidth="370"
-        MinHeight="145" WindowStartupLocation="CenterScreen"
+        MinHeight="145"
         Icon="/Resources/ColorWheel256.bmp">
     <DockPanel x:Name="MainDockPanel" LastChildFill="True">
         

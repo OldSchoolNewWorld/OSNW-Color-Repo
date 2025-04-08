@@ -274,7 +274,8 @@ Class MainWindow
 
             ' Set up and show dialog.
             Dim Dlg As New OSNW.Dialog.ColorDialog With {
-                .Owner = Me, .Red = Red, .Green = Green, .Blue = Blue}
+                .Owner = Me, .WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                .Red = Red, .Green = Green, .Blue = Blue}
             Dlg.ShowDialog()
 
             If Dlg.DialogResult Then
