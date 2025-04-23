@@ -64,7 +64,7 @@ Friend Class ColorDlgWindow
 
 #Region "Localized Types"
 
-    Public Class SharedColorDlgValues
+    Public Class SharedHostedWindowValues
 
         ' These are public members of the Friend ColorDlgWindow class. As such,
         ' they are reachable by the dialog host, particulary during initialization.

@@ -6,7 +6,7 @@ Option Infer Off
 Imports System.Windows
 Imports System.Windows.Controls
 Imports System.Windows.Input
-Imports SCDV = OSNW.Dialog.ColorDlgWindow.SharedColorDlgValues
+Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
 
 ' NOTE: <UseWPF>true</UseWPF> may need to be added to the dialogs'
@@ -679,8 +679,8 @@ Partial Friend Class ColorDlgWindow
             .ToneStartG = .RgbWorkG
             .ToneStartB = .RgbWorkB
             .ToneStartH = .HsvWorkH
-            .ToneWorkFactor = SCDV.TONEINITIALFACTOR
-            .ToneWorkGray = SCDV.TONEINITIALGRAY
+            .ToneWorkFactor = SHWV.TONEINITIALFACTOR
+            .ToneWorkGray = SHWV.TONEINITIALGRAY
 
             ' Hide the displays until values have been clicked.
             .ToneValuesClicked = False
@@ -789,13 +789,13 @@ Partial Friend Class ColorDlgWindow
             .BlendRgb1GreenTextBox.Text = RgbWorkG.ToString
             .BlendRgb1BlueTextBox.Text = RgbWorkB.ToString
             .BlendRgb1RatioTextBox.Text =
-                SCDV.BLENDINITIALRGBRATIO1.ToString
+                SHWV.BLENDINITIALRGBRATIO1.ToString
 
             .BlendRgb2RedTextBox.Text = RgbWorkR.ToString
             .BlendRgb2GreenTextBox.Text = RgbWorkG.ToString
             .BlendRgb2BlueTextBox.Text = RgbWorkB.ToString
             .BlendRgb2RatioTextBox.Text =
-                SCDV.BLENDINITIALRGBRATIO2.ToString
+                SHWV.BLENDINITIALRGBRATIO2.ToString
 
         End With
 

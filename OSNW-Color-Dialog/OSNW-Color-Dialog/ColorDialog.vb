@@ -6,7 +6,7 @@ Option Infer Off
 Imports System.ComponentModel
 Imports System.IO
 Imports System.Windows
-Imports SCDV = OSNW.Dialog.ColorDlgWindow.SharedColorDlgValues
+Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
 ' TODO:
 ' Add shared values to be referenced by the ColorDialog and ColorDlgWindow.
@@ -675,21 +675,21 @@ Public Class ColorDialog
             ' Set the initial Window features.
             '            .m_DialogResult = Nothing ' Matches default.
             '            .m_Owner = Nothing ' Matches default.
-            .m_ResizeMode = SCDV.DEFAULTRESIZEMODE
-            .m_ShowInTaskbar = SCDV.DEFAULTSHOWINTASKBAR
-            .m_Title = SCDV.DEFAULTDIALOGTITLE
-            .m_WindowStartupLocation = SCDV.DEFAULTWINDOWSTARTUPLOCATION
+            .m_ResizeMode = SHWV.DEFAULTRESIZEMODE
+            .m_ShowInTaskbar = SHWV.DEFAULTSHOWINTASKBAR
+            .m_Title = SHWV.DEFAULTDIALOGTITLE
+            .m_WindowStartupLocation = SHWV.DEFAULTWINDOWSTARTUPLOCATION
 
             ' Set the initial tab visibility to defaults.
-            .m_ShowConvertTab = SCDV.DEFAULTSHOWCONVERTTAB
-            .m_ShowDefinedTab = SCDV.DEFAULTSHOWDEFINEDTAB
-            .m_ShowRgbTab = SCDV.DEFAULTSHOWRGBTTAB
-            .m_ShowHslTab = SCDV.DEFAULTSHOWHSLTAB
-            .m_ShowHsvTab = SCDV.DEFAULTSHOWHSVTAB
-            .m_ShowShadeTab = SCDV.DEFAULTSHOWSHADETAB
-            .m_ShowTintTab = SCDV.DEFAULTSHOWTINTTAB
-            .m_ShowToneTab = SCDV.DEFAULTSHOWTONETAB
-            .m_ShowBlendTab = SCDV.DEFAULTSHOWBLENDTAB
+            .m_ShowConvertTab = SHWV.DEFAULTSHOWCONVERTTAB
+            .m_ShowDefinedTab = SHWV.DEFAULTSHOWDEFINEDTAB
+            .m_ShowRgbTab = SHWV.DEFAULTSHOWRGBTTAB
+            .m_ShowHslTab = SHWV.DEFAULTSHOWHSLTAB
+            .m_ShowHsvTab = SHWV.DEFAULTSHOWHSVTAB
+            .m_ShowShadeTab = SHWV.DEFAULTSHOWSHADETAB
+            .m_ShowTintTab = SHWV.DEFAULTSHOWTINTTAB
+            .m_ShowToneTab = SHWV.DEFAULTSHOWTONETAB
+            .m_ShowBlendTab = SHWV.DEFAULTSHOWBLENDTAB
 
             ' DEV: The ColorDlgWindow is configured with a default icon that
             ' is set in its XAML layout. If m_Icon for the ColorDialog is left at

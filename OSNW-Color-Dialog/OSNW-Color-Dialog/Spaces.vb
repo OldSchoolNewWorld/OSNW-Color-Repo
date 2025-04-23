@@ -4,7 +4,7 @@ Option Compare Binary
 Option Infer Off
 
 Imports System.Windows.Input
-Imports SCDV = OSNW.Dialog.ColorDlgWindow.SharedColorDlgValues
+Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
 Partial Friend Class ColorDlgWindow
 
@@ -370,25 +370,25 @@ Partial Friend Class ColorDlgWindow
             Select Case Me.LastRgbChange
                 Case LastRgbChangeEnum.Red
                     .RgbBaseLabel.Content =
-                        $"{ByteValueStr(SCDV.REDWORD, .RgbWorkR)} Whole"
-                    .RgbXLabel.Content = SCDV.GREENWORD
-                    .RgbYLabel.Content = SCDV.BLUEWORD
+                        $"{ByteValueStr(SHWV.REDWORD, .RgbWorkR)} Whole"
+                    .RgbXLabel.Content = SHWV.GREENWORD
+                    .RgbYLabel.Content = SHWV.BLUEWORD
                 Case LastRgbChangeEnum.Green
                     .RgbBaseLabel.Content =
-                        $"{ByteValueStr(SCDV.GREENWORD, .RgbWorkG)} Whole"
-                    .RgbXLabel.Content = SCDV.REDWORD
-                    .RgbYLabel.Content = SCDV.BLUEWORD
+                        $"{ByteValueStr(SHWV.GREENWORD, .RgbWorkG)} Whole"
+                    .RgbXLabel.Content = SHWV.REDWORD
+                    .RgbYLabel.Content = SHWV.BLUEWORD
                 Case Else
                     .RgbBaseLabel.Content =
-                        $"{ByteValueStr(SCDV.BLUEWORD, .RgbWorkB)} Whole"
-                    .RgbXLabel.Content = SCDV.REDWORD
-                    .RgbYLabel.Content = SCDV.GREENWORD
+                        $"{ByteValueStr(SHWV.BLUEWORD, .RgbWorkB)} Whole"
+                    .RgbXLabel.Content = SHWV.REDWORD
+                    .RgbYLabel.Content = SHWV.GREENWORD
             End Select
 
             ' Update the displayed per-component values.
-            .TweakRedLabel.Content = .ByteValueStr(SCDV.REDWORD, .RgbWorkR)
-            .TweakGreenLabel.Content = .ByteValueStr(SCDV.GREENWORD, .RgbWorkG)
-            .TweakBlueLabel.Content = .ByteValueStr(SCDV.BLUEWORD, .RgbWorkB)
+            .TweakRedLabel.Content = .ByteValueStr(SHWV.REDWORD, .RgbWorkR)
+            .TweakGreenLabel.Content = .ByteValueStr(SHWV.GREENWORD, .RgbWorkG)
+            .TweakBlueLabel.Content = .ByteValueStr(SHWV.BLUEWORD, .RgbWorkB)
 
             ' Update the square.
             .RgbFillImage()

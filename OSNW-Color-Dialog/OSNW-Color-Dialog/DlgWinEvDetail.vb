@@ -4,7 +4,7 @@ Option Compare Binary
 Option Infer Off
 
 Imports System.Windows
-Imports SCDV = OSNW.Dialog.ColorDlgWindow.SharedColorDlgValues
+Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
 
 Partial Friend Class ColorDlgWindow
@@ -155,10 +155,10 @@ Partial Friend Class ColorDlgWindow
         With Me
 
             ' Window items.
-            .ResizeMode = SCDV.DEFAULTRESIZEMODE
-            .Title = SCDV.DEFAULTDIALOGTITLE
-            .ShowInTaskbar = SCDV.DEFAULTSHOWINTASKBAR
-            .WindowStartupLocation = SCDV.DEFAULTWINDOWSTARTUPLOCATION
+            .ResizeMode = SHWV.DEFAULTRESIZEMODE
+            .Title = SHWV.DEFAULTDIALOGTITLE
+            .ShowInTaskbar = SHWV.DEFAULTSHOWINTASKBAR
+            .WindowStartupLocation = SHWV.DEFAULTWINDOWSTARTUPLOCATION
 
             ' Initialize the control data.
             .ConvertTabPushing = False
@@ -188,8 +188,8 @@ Partial Friend Class ColorDlgWindow
             ' Create an original background color. Establish the bad text color.
             .GoodBackgroundBrush = .ConvertRgbRedTextBox.Background
             Dim BadBackgroundColor As New System.Windows.Media.Color With {
-                .A = &HFF, .R = SCDV.BADTEXTR, .G = SCDV.BADTEXTG,
-                .B = SCDV.BADTEXTB}
+                .A = &HFF, .R = SHWV.BADTEXTR, .G = SHWV.BADTEXTG,
+                .B = SHWV.BADTEXTB}
             .BadBackgroundBrush =
                 New System.Windows.Media.SolidColorBrush(BadBackgroundColor)
 
