@@ -80,6 +80,43 @@ Namespace ColorUtilUnitTests
 
         End Sub
 
+        <Theory>
+        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 1 / 8)>
+        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 7 / 8)>
+        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 5 / 8)>
+        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 3 / 8)>
+        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI / 4.0)>
+        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI * 7 / 4.0)>
+        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI * 5 / 4.0)>
+        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI * 3 / 4.0)>
+        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 45)>
+        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 315)>
+        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 225)>
+        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 135)>
+        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 / 8)>
+        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 * 7 / 8)>
+        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 * 5 / 8)>
+        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 * 3 / 8)>
+        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 / 8)>
+        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 * 7 / 8)>
+        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 * 5 / 8)>
+        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 * 3 / 8)>
+        Sub GetHueFromPixel_GoodInput_Succeeds(ByVal pixelX As System.Int32,
+            ByVal pixelY As System.Int32, ByVal imageWidth As System.Int32,
+            ByVal imageHeight As System.Int32,
+            ByVal scaleTo As OSNW.Graphics.ColorUtilities.HueScaleEnum,
+            ByVal expectResult As System.Double)
+
+            Const SMALLDIFF As System.Double = 0.01
+
+            Dim ActualResult As System.Double =
+                OSNW.Graphics.ColorUtilities.GetHueFromPixel(pixelX, pixelY,
+                    imageWidth, imageHeight, scaleTo)
+
+            Assert.Equal(expectResult, ActualResult, SMALLDIFF)
+
+        End Sub
+
 #Region "Blend"
 
         <Theory>
@@ -272,6 +309,8 @@ Namespace ColorUtilUnitTests
 
 #End Region ' "Blend"
 
+#Region "Shade"
+
         <Theory>
         <InlineData(-0.01, 192, 192, 0.5)>
         <InlineData(192, -0.01, 192, 0.5)>
@@ -320,6 +359,8 @@ Namespace ColorUtilUnitTests
             ByVal colorInB As System.Double, ByVal shadeFactor As System.Double,
             ByRef expectR As System.Double, ByRef expectG As System.Double,
             ByRef expectB As System.Double, ByVal allowance As System.Double)
+
+            ' Test values: https://maketintsandshades.com/#ff0000,008088
 
             Dim ResultR, ResultG, ResultB As System.Double
 
@@ -373,6 +414,8 @@ Namespace ColorUtilUnitTests
             ByRef expectR As System.Double, ByRef expectG As System.Double,
             ByRef expectB As System.Double)
 
+            ' Test values: https://maketintsandshades.com/#ff0000,008088
+
             Const SMALLDIFF As System.Double = 1.0
             Dim ColorIn As System.Windows.Media.Color =
                 System.Windows.Media.Color.FromRgb(colorInR, colorInG, colorInB)
@@ -385,6 +428,10 @@ Namespace ColorUtilUnitTests
             Assert.Equal(expectB, ColorOut.B, SMALLDIFF)
 
         End Sub
+
+#End Region ' "Shade"
+
+#Region "Tint"
 
         <Theory>
         <InlineData(192, 192, 192, -0.01)>
@@ -481,6 +528,8 @@ Namespace ColorUtilUnitTests
             ByRef expectR As System.Double, ByRef expectG As System.Double,
             ByRef expectB As System.Double)
 
+            ' Test values: https://maketintsandshades.com/#ff0000,008088
+
             Const SMALLDIFF As System.Double = 1.0
             Dim ColorIn As System.Windows.Media.Color =
                 System.Windows.Media.Color.FromRgb(colorInR, colorInG, colorInB)
@@ -493,6 +542,10 @@ Namespace ColorUtilUnitTests
             Assert.Equal(expectB, ColorOut.B, SMALLDIFF)
 
         End Sub
+
+#End Region ' "Tint"
+
+#Region "Tone"
 
         <Theory>
         <InlineData(64, 128, 192, -0.01, 0.5)>
@@ -538,6 +591,10 @@ Namespace ColorUtilUnitTests
             ByVal toneFactor As System.Double, ByRef expectR As System.Double,
             ByRef expectG As System.Double, ByRef expectB As System.Double,
             ByVal allowance As System.Double)
+
+            ' Test values: https://colors.dopely.top/color-toner/ff0000-tones-11
+            ' That appears to show 11 tones, from 0%-100%, in 10% steps. If so, the 100% tone
+            ' result looks like medium gray, with no choice of which gray is used.
 
             Dim ResultR, ResultG, ResultB As System.Double
 
@@ -615,42 +672,7 @@ Namespace ColorUtilUnitTests
 
         End Sub
 
-        <Theory>
-        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 1 / 8)>
-        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 7 / 8)>
-        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 5 / 8)>
-        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Fraction, 3 / 8)>
-        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI / 4.0)>
-        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI * 7 / 4.0)>
-        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI * 5 / 4.0)>
-        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Radians, System.Math.PI * 3 / 4.0)>
-        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 45)>
-        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 315)>
-        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 225)>
-        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Degrees, 135)>
-        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 / 8)>
-        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 * 7 / 8)>
-        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 * 5 / 8)>
-        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale255, 255 * 3 / 8)>
-        <InlineData(8, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 / 8)>
-        <InlineData(0, 0, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 * 7 / 8)>
-        <InlineData(0, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 * 5 / 8)>
-        <InlineData(8, 8, 9, 9, OSNW.Graphics.ColorUtilities.HueScaleEnum.Scale240, 240 * 3 / 8)>
-        Sub GetHueFromPixel_GoodInput_Succeeds(ByVal pixelX As System.Int32,
-            ByVal pixelY As System.Int32, ByVal imageWidth As System.Int32,
-            ByVal imageHeight As System.Int32,
-            ByVal scaleTo As OSNW.Graphics.ColorUtilities.HueScaleEnum,
-            ByVal expectResult As System.Double)
-
-            Const SMALLDIFF As System.Double = 0.01
-
-            Dim ActualResult As System.Double =
-                OSNW.Graphics.ColorUtilities.GetHueFromPixel(pixelX, pixelY,
-                    imageWidth, imageHeight, scaleTo)
-
-            Assert.Equal(expectResult, ActualResult, SMALLDIFF)
-
-        End Sub
+#End Region ' "Tone"
 
     End Class ' OtherUnitTests
 
