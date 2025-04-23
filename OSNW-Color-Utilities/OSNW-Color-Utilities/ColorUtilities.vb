@@ -6,7 +6,7 @@ Option Infer Off
 Imports System.Text.RegularExpressions
 
 ' TODO:
-' Where to get comparisons for tone: ColorHexa - see Blend region. That is for Blend!!!
+' Where to get comparisons for tone: colors.dopely.top. Anything more on point???
 ' Done. Add unit-tests of bad inputs for the HTML conversions.
 ' Why does IntelliSense code completion cause exceptions, and hover hints fail
 '   to show up on OSNW references?
