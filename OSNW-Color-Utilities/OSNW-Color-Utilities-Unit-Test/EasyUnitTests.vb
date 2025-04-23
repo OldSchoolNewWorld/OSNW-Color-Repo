@@ -54,8 +54,6 @@ Namespace ColorUtilUnitTests
 
         End Sub
 
-        '<Theory>
-
         <Theory>
         <InlineData("#FFC0CB", 255, 192, 203)> ' htmlcolorcodes
         <InlineData("#FFEFD5", 255, 239, 213)> ' htmlcolorcodes
@@ -113,14 +111,13 @@ Namespace ColorUtilUnitTests
         End Sub
 
         <Theory>
-        <InlineData(64.0, 64.0, 64.0, 0.0, 0.0, 64.0 / 255.0)>    ' Try gray.
-        <InlineData(128.0, 128.0, 128.0, 0.0, 0.0, 128.0 / 255.0)>
-        <InlineData(192.0, 192.0, 192.0, 0.0, 0.0, 192.0 / 255.0)>
-        <InlineData(106.0, 90.0, 205.0, 248.34782575163814 / 360.0,
-                    0.53488371609480978, 0.57843137693171409)>    ' Try colored.
-        <InlineData(183.0, 156.0, 20.0, 50.0 / 360.0, 0.8, 0.4)>
-        <InlineData(182.0, 219.0, 162.0, 100.0 / 360.0, 0.45, 0.75)>
-        <InlineData(Nothing, 255.0, 255.0, 180.0 / 360.0, 1.0, 0.5)>
+        <InlineData(64.0, 64.0, 64.0, 0.0, 0.0, 0.251)>    ' Try gray.
+        <InlineData(128.0, 128.0, 128.0, 0.0, 0.0, 0.502)>
+        <InlineData(192.0, 192.0, 192.0, 0.0, 0.0, 0.7529)>
+        <InlineData(205.0, 92.0, 92.0, 0.0, 0.5305, 0.5824)>    ' Try colored.
+        <InlineData(255, 192, 203, 349.52 / 360.0, 1.0, 0.8765)>
+        <InlineData(255.0, 239.0, 213.0, 37.14 / 360.0, 1.0, 0.9176)>
+        <InlineData(Nothing, 255.0, 255.0, 180.0 / 360.0, 1.0, 0.5)> ' Pass Nothing.
         <InlineData(255.0, Nothing, 255.0, 300.0 / 360.0, 1.0, 0.5)>
         <InlineData(255.0, 255.0, Nothing, 60.0 / 360.0, 1.0, 0.5)>
         Public Sub EasyRGBtoHSL_GoodInput_Succeeds(ByVal redIn As System.Double,
@@ -128,6 +125,8 @@ Namespace ColorUtilUnitTests
             ByRef expectHue As System.Double,
             ByRef expectSaturation As System.Double,
             ByRef expectLuminance As System.Double)
+
+            ' Test values: https://colordesigner.io/convert/rgbtohsl
 
             Const SMALLDIFF As System.Double = 0.01
 
@@ -170,22 +169,23 @@ Namespace ColorUtilUnitTests
         End Sub
 
         <Theory>
-        <InlineData(0.0, 0.0, 64.0 / 255.0, 64.0, 64.0, 64.0)>    ' Try gray.
-        <InlineData(0.0, 0.0, 128.0 / 255.0, 128.0, 128.0, 128.0)>
-        <InlineData(0.0, 0.0, 192.0 / 255.0, 192.0, 192.0, 192.0)>
-        <InlineData(248.34782575163814 / 360.0, 0.53488371609480978,
-                    0.57843137693171409, 106.0, 90.0, 205.0)>     ' Try colored.
-        <InlineData(50.0 / 360.0, 0.8, 0.4, 183.0, 156.0, 20.0)>
-        <InlineData(100.0 / 360.0, 0.45, 0.75, 182.0, 219.0, 162.0)>
-        <InlineData(Nothing, 0.5, 0.5, 191.0, 64.0, 64.0)>
-        <InlineData(0.5, Nothing, 0.5, 128.0, 128.0, 128.0)>
-        <InlineData(0.5, 0.5, Nothing, 0.0, 0.0, 0.0)>
+        <InlineData(0.0, 0.0, 0.25, 64.0, 64.0, 64.0)>    ' Try gray.
+        <InlineData(0.0, 0.0, 0.5, 128.0, 128.0, 128.0)>
+        <InlineData(0.0, 0.0, 0.75, 191.0, 191.0, 191.0)>
+        <InlineData(0.0, 0.5305, 0.5824, 205.0, 92.0, 92.0)>    ' Try colored.
+        <InlineData(349.52 / 360.0, 1.0, 0.8765, 255.0, 192.0, 203.0)>
+        <InlineData(37.14 / 360.0, 1.0, 0.9176, 255.0, 239.0, 213.0)>
+        <InlineData(180.0 / 360.0, 1.0, 0.5, 0.0, 255.0, 255.0)>
+        <InlineData(300.0 / 360.0, 1.0, 0.5, 255.0, 0.0, 255.0)>
+        <InlineData(60.0 / 360.0, 1.0, 0.5, 255.0, 255.0, 0.0)>
         Sub EasyHSLtoRGB_GoodInput_Succeeds(ByVal hueIn As System.Double,
             ByVal saturationIn As System.Double,
             ByVal luminanceIn As System.Double,
             ByRef expectRed As System.Double,
             ByRef expectGreen As System.Double,
             ByRef expectBlue As System.Double)
+
+            ' Test values: https://colordesigner.io/convert/hsltorgb
 
             Const SMALLDIFF As System.Double = 1.0
             Dim Red As System.Double
@@ -227,13 +227,12 @@ Namespace ColorUtilUnitTests
         End Sub
 
         <Theory>
-        <InlineData(64.0, 64.0, 64.0, 0.0, 0.0, 0.25)>            ' Try gray.
-        <InlineData(128.0, 128.0, 128.0, 0.0, 0.0, 0.5)>
-        <InlineData(192.0, 192.0, 192.0, 0.0, 0.0, 0.75)>
-        <InlineData(106.0, 90.0, 205.0, 248.34782575163814 / 360.0,
-                    0.56097560975609762, 0.803921568627451)>      ' Try colored.
-        <InlineData(183.0, 156.0, 20.0, 50.0 / 360.0, 0.89, 0.72)>
-        <InlineData(182.0, 219.0, 162.0, 99.0 / 360.0, 0.26, 0.86)>
+        <InlineData(64.0, 64.0, 64.0, 0.0, 0.0, 0.251)>            ' Try gray.
+        <InlineData(128.0, 128.0, 128.0, 0.0, 0.0, 0.502)>
+        <InlineData(192.0, 192.0, 192.0, 0.0, 0.0, 0.7529)>
+        <InlineData(106.0, 90.0, 205.0, 248.35 / 360.0, 0.561, 0.8039)>      ' Try colored.
+        <InlineData(183.0, 156.0, 20.0, 50.06 / 360.0, 0.8907, 0.7176)>
+        <InlineData(182.0, 219.0, 162.0, 98.95 / 360.0, 0.2603, 0.8588)>
         <InlineData(Nothing, 255.0, 255.0, 180.0 / 360.0, 1.0, 1.0)>
         <InlineData(255.0, Nothing, 255.0, 300.0 / 360.0, 1.0, 1.0)>
         <InlineData(255.0, 255.0, Nothing, 60.0 / 360.0, 1.0, 1.0)>
@@ -242,6 +241,8 @@ Namespace ColorUtilUnitTests
             ByRef ExpectHue As System.Double,
             ByRef ExpectSaturation As System.Double,
             ByRef ExpectValue As System.Double)
+
+            ' Test values: https://colordesigner.io/convert/rgbtohsv
 
             Const SMALLDIFF As System.Double = 0.01
             Dim Hue As System.Double
