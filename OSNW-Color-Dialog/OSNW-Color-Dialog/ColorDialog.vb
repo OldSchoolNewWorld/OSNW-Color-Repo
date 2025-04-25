@@ -9,10 +9,6 @@ Imports System.Windows
 Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
 ' TODO:
-' Add shared values to be referenced by the ColorDialog and ColorDlgWindow.
-'   Initialization values.
-'   Others?
-'   Add subroutine to apply at startup
 ' Add exception handling and activate for dialog events.
 '   Already in ExcepModelUtil?
 ' Add ability to set Hue as an angle.
@@ -20,6 +16,10 @@ Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 '   UnderlyingRGB, as opposed to RgbWorkR/RgbWorkG/RgbWorkB. Also consider
 '   whether RgbWorkR/RgbWorkG/RgbWorkB should even exist.
 ' How to list copyrights for reference material?
+' Done. Add shared values to be referenced by the ColorDialog and ColorDlgWindow.
+'   Initialization values.
+'   Others?
+'   Add subroutine to apply at startup
 ' Done. Rename the icon file in the dialog and application.
 ' Done. Confirm that text changes and drawing clicks only update UnderlyingRGB, as
 '   opposed to Red/Green/Blue. Alternatively, that the RGB values are only used
@@ -615,8 +615,8 @@ Public Class ColorDialog
         ' This sequence works, but it needs to look for the file in its original
         ' location.
         Dim BSource As System.Windows.Media.Imaging.BitmapSource =
-           ColorDialog.IcoToBitmapSourceConverter.ConvertIcoToBitmapSource(
-               icoFilePath)
+                ColorDialog.IcoToBitmapSourceConverter.ConvertIcoToBitmapSource(
+                   icoFilePath)
         Return BSource
     End Function ' GetIconFromFile
 
@@ -636,7 +636,7 @@ Public Class ColorDialog
         ' https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/pack-uris-in-wpf#referenced-assembly-resource-file
 
         Return $"pack://application:,,,/{referencedAssembly}" &
-            $";component/Resources/{fileName}"
+                $";component/Resources/{fileName}"
 
     End Function ' GetIconPackURI
 
@@ -654,7 +654,7 @@ Public Class ColorDialog
         ' https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/pack-uris-in-wpf?view=netframeworkdesktop-4.8&redirectedfrom=MSDN
 
         Dim IconBitmapImage As New System.Windows.Media.Imaging.BitmapImage(
-            New System.Uri(iconPath))
+                New System.Uri(iconPath))
         Return IconBitmapImage
 
     End Function ' GetIconFromResource

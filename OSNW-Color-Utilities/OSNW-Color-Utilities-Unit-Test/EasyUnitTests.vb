@@ -12,7 +12,6 @@ Namespace ColorUtilUnitTests
 
         ' RGBtoHTML has bytes for parameters and any byte value is valid, so no
         ' bad-argument tests are needed.
-        ' Test values: https://htmlcolorcodes.com/color-names/
 
         <Theory>
         <InlineData(205, 92, 92, "#CD5C5C")>
@@ -20,8 +19,9 @@ Namespace ColorUtilUnitTests
         <InlineData(255, 239, 213, "#FFEFD5")>
         <InlineData(65, 105, 225, "#4169E1")>
         <InlineData(107, 142, 35, "#6B8E23")>
-        Sub RGBtoHTML_GoodInput_Succeeds(ByVal red As System.Byte, ByVal green As System.Byte,
-            ByVal blue As System.Byte, ByVal expected As System.String)
+        Sub RGBtoHTML_GoodInput_Succeeds(ByVal red As System.Byte,
+            ByVal green As System.Byte, ByVal blue As System.Byte,
+            ByVal expected As System.String)
 
             ' Test values: https://htmlcolorcodes.com/color-names/
 
