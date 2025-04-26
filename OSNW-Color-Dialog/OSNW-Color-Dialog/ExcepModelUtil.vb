@@ -5,7 +5,15 @@ Option Infer Off
 
 Imports System.Reflection
 
-Partial Friend Class ColorDlgWindow
+''' <summary>
+''' Represents a <c>Class</c> that supplies functionality to respond to
+''' <see cref="System.Exception"/>s.
+''' </summary>
+''' <remarks>
+''' <c>ExceptionHandler</c> is designated as <c>Friend</c>; it is only directly
+''' available to the associated <see cref="ColorDlgWindow"/> and <see cref="ColorDialog"/>.
+''' </remarks>
+Friend Class ExceptionHandler
     ' DEV: These routines are intended as part of the model.
 
 #Region "Basic Sub/Function Model"
@@ -39,7 +47,7 @@ Partial Friend Class ColorDlgWindow
     '             ' Respond to an anticipated exception.
     '             Dim CaughtBy As System.Reflection.MethodBase =
     '                 System.Reflection.MethodBase.GetCurrentMethod
-    '             Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+    '             ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
     ' 
     '             ' Optional rethrow of the caught exception.
     '             'Throw
@@ -57,7 +65,7 @@ Partial Friend Class ColorDlgWindow
     '         ' Report the unexpected exception.
     '         Dim CaughtBy As System.Reflection.MethodBase =
     '             System.Reflection.MethodBase.GetCurrentMethod()
-    '         Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+    '         ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
     '     End Try
     ' End Sub
 
@@ -84,7 +92,7 @@ Partial Friend Class ColorDlgWindow
     ''' That variable can then be referenced by local code or inspected while
     ''' debugging.
     ''' </remarks>
-    Private Sub ExtractException(ByVal caughtEx As System.Exception)
+    Private Shared Sub ExtractException(ByVal caughtEx As System.Exception)
 
         ' The following are examples of information in System.Exception that can
         ' be examined to determine the cause of an exception.
@@ -149,7 +157,7 @@ Partial Friend Class ColorDlgWindow
     ''' provide additional specific information of interest.
     ''' </para>
     ''' </remarks>
-    Private Sub ExtractEventArgs(ByVal e As System.EventArgs)
+    Private Shared Sub ExtractEventArgs(ByVal e As System.EventArgs)
 
         ' The following are examples of information in System.EventArgs that can
         ' be examined to determine the conditions that caused an exception.
@@ -186,7 +194,7 @@ Partial Friend Class ColorDlgWindow
     ''' may provide additional specific information of interest.
     ''' </para>
     ''' </remarks>
-    Private Sub ExtractRoutedEventArgs(
+    Private Shared Sub ExtractRoutedEventArgs(
         ByVal e As System.Windows.RoutedEventArgs)
 
         ' The following are examples of unique information in
@@ -227,7 +235,8 @@ Partial Friend Class ColorDlgWindow
     ''' types that may provide additional specific information of interest.
     ''' </para>
     ''' </remarks>
-    Private Sub ExtractCancelEventArgs(ByVal e As System.ComponentModel.CancelEventArgs)
+    Private Shared Sub ExtractCancelEventArgs(
+        ByVal e As System.ComponentModel.CancelEventArgs)
 
         ' Unique information in System.ComponentModel.CancelEventArgs that can
         ' be examined to determine the cause of an exception and where it occurred.
@@ -281,11 +290,16 @@ Partial Friend Class ColorDlgWindow
     ''' <param name="paramName">Specifies the name of the parameter that was
     ''' invalid.</param>
     ''' <param name="reason">Specifies the reason for the rejection.</param>
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>This is for invalid calls to
     ''' <c>ShowExceptionMessageBox(&lt;varies&gt;)</c>, not for generic invalid
     ''' procedure calls.</remarks>
-    Private Sub ShowExceptionArgNotice(ByVal paramName As System.String,
-                                       ByVal reason As System.String)
+    Private Shared Sub ShowExceptionArgNotice(ByVal paramName As System.String,
+        ByVal reason As System.String,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         Dim CaptionStr As System.String = "Invalid ShowExceptionMessageBox"
         Dim IntroDetails As System.String = System.String.Concat(
@@ -295,8 +309,8 @@ Partial Friend Class ColorDlgWindow
         ' Construct and show the notice.
         Dim ShownDetail As System.String = System.String.Concat(IntroDetails,
             System.Environment.NewLine, System.Environment.NewLine, reason)
-        If Me.Owner Is Nothing Then
-            ' Show without Me.Owner.
+        If owner Is Nothing Then
+            ' Show without owner.
             ' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.messagebox.show?view=windowsdesktop-9.0#remarks
             ' Use an overload of the Show method, which enables you to specify
             ' an owner window. Otherwise, the message box is owned by the window
@@ -306,7 +320,7 @@ Partial Friend Class ColorDlgWindow
                                            System.Windows.MessageBoxImage.Error)
         Else
             ' Use Me.Owner.
-            System.Windows.MessageBox.Show(Me.Owner, ShownDetail, CaptionStr,
+            System.Windows.MessageBox.Show(owner, ShownDetail, CaptionStr,
                                            System.Windows.MessageBoxButton.OK,
                                            System.Windows.MessageBoxImage.Error)
         End If
@@ -321,20 +335,25 @@ Partial Friend Class ColorDlgWindow
     ''' <param name="introDetails">Specifies a summary of the exception.</param>
     ''' <param name="techDetails">Specifies detailed information about the 
     ''' exception.</param>
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>
     ''' This is mainly intended for exceptions caught in the outer layer of the
     ''' model. It provides high-level detail regarding where to look for
     ''' problems. It can also be used by the inner layer if specific information
     ''' is provided in <paramref name="techDetails"/>.
     ''' </remarks>
-    Private Sub ShowExceptionNotice(ByVal captionStr As System.String,
-        ByVal introDetails As System.String, ByVal techDetails As System.String)
+    Private Shared Sub ShowExceptionNotice(ByVal captionStr As System.String,
+        ByVal introDetails As System.String, ByVal techDetails As System.String,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         ' Construct and show the notice.
         Dim ShownDetail As System.String = System.String.Concat(introDetails,
             System.Environment.NewLine, System.Environment.NewLine, techDetails)
-        If Me.Owner Is Nothing Then
-            ' Show without Me.Owner.
+        If owner Is Nothing Then
+            ' Show without owner.
             ' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.messagebox.show?view=windowsdesktop-9.0#remarks
             ' Use an overload of the Show method, which enables you to specify
             ' an owner window. Otherwise, the message box is owned by the window
@@ -344,7 +363,7 @@ Partial Friend Class ColorDlgWindow
                                            System.Windows.MessageBoxImage.Error)
         Else
             ' Use Me.Owner.
-            System.Windows.MessageBox.Show(Me.Owner, ShownDetail, captionStr,
+            System.Windows.MessageBox.Show(owner, ShownDetail, captionStr,
                                            System.Windows.MessageBoxButton.OK,
                                            System.Windows.MessageBoxImage.Error)
         End If
@@ -360,20 +379,25 @@ Partial Friend Class ColorDlgWindow
     ''' <param name="caughtBy">Specifies the process in which an exception was
     ''' caught.</param>
     ''' <param name="caughtEx">Provides the exception that was caught.</param>
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>
     ''' This is a generic version of
     ''' <c>ShowExceptionMessageBox(&lt;params&gt;)</c>. Other overloaded
     ''' versions take additional parameters that can provide more information
     ''' about the conditions that led to the exception.
     ''' </remarks>
-    Private Sub ShowExceptionMessageBox(
+    Public Shared Sub ShowExceptionMessageBox(
         ByVal caughtBy As System.Reflection.MethodBase,
-        ByVal caughtEx As System.Exception)
+        ByVal caughtEx As System.Exception,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         ' Argument checking.
         If caughtEx Is Nothing Then
-            Me.ShowExceptionArgNotice(NameOf(caughtEx),
-                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
+            ShowExceptionArgNotice(NameOf(caughtEx),
+                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.", owner)
             Exit Sub ' Early exit.
         End If
         Dim CaughtByName As System.String = If(caughtBy Is Nothing,
@@ -390,7 +414,7 @@ Partial Friend Class ColorDlgWindow
 
         ' Construct and show the notice.
         Dim Caption As System.String = "Process Failure"
-        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
+        ShowExceptionNotice(Caption, IntroDetails, TechDetails, owner)
 
     End Sub ' ShowExceptionMessageBox
 
@@ -403,20 +427,25 @@ Partial Friend Class ColorDlgWindow
     ''' <param name="caughtEx">Provides the exception that was caught.</param>
     ''' <param name="dataMessage"></param>Provides a message about conditions
     ''' where the exception occurred.
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>
     ''' See
-    ''' <see cref="ShowExceptionMessageBox(System.Reflection.MethodBase, System.Exception)"/>
-    ''' for information common across exception types.
+    ''' <see cref="ShowExceptionMessageBox(System.Reflection.MethodBase,
+    ''' System.Exception, System.Windows.Window)"/> for information common
+    ''' across exception types.
     ''' </remarks>
-    Private Sub ShowExceptionMessageBox(
+    Public Shared Sub ShowExceptionMessageBox(
         ByVal caughtBy As System.Reflection.MethodBase,
-        ByVal caughtEx As System.Exception,
-        ByVal dataMessage As System.String)
+        ByVal caughtEx As System.Exception, ByVal dataMessage As System.String,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         ' Argument checking.
         If caughtEx Is Nothing Then
-            Me.ShowExceptionArgNotice(NameOf(caughtEx),
-                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
+            ShowExceptionArgNotice(NameOf(caughtEx),
+                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.", owner)
             Exit Sub ' Early exit.
         End If
         Dim CaughtByName As System.String = If(caughtBy Is Nothing,
@@ -434,7 +463,7 @@ Partial Friend Class ColorDlgWindow
 
         ' Construct and show the notice.
         Dim Caption As System.String = "Process Failure"
-        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
+        ShowExceptionNotice(Caption, IntroDetails, TechDetails, owner)
 
     End Sub ' ShowExceptionMessageBox
 
@@ -449,6 +478,10 @@ Partial Friend Class ColorDlgWindow
     ''' event.</param>
     ''' <param name="e">Specifies arguments that are associated with the
     ''' event.</param>
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>
     ''' <para>
     ''' This is a generic version of ShowExceptionMessageBox(&lt;params&gt;)
@@ -462,15 +495,16 @@ Partial Friend Class ColorDlgWindow
     ''' provide even more specific information.
     ''' </para>
     ''' </remarks>
-    Private Sub ShowExceptionMessageBox(
+    Public Shared Sub ShowExceptionMessageBox(
         ByVal caughtBy As System.Reflection.MethodBase,
         ByVal caughtEx As System.Exception,
-        ByVal sender As Object, ByVal e As System.EventArgs)
+        ByVal sender As Object, ByVal e As System.EventArgs,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         ' Argument checking.
         If caughtEx Is Nothing Then
-            Me.ShowExceptionArgNotice(NameOf(caughtEx),
-                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
+            ShowExceptionArgNotice(NameOf(caughtEx),
+                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.", owner)
             Exit Sub ' Early exit.
         End If
         Dim CaughtByName As System.String = If(caughtBy Is Nothing,
@@ -491,7 +525,7 @@ Partial Friend Class ColorDlgWindow
 
         ' Construct and show the notice.
         Dim Caption As System.String = "Initialization Event Failure"
-        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
+        ShowExceptionNotice(Caption, IntroDetails, TechDetails, owner)
 
     End Sub ' ShowExceptionMessageBox
 
@@ -506,21 +540,25 @@ Partial Friend Class ColorDlgWindow
     ''' event.</param>
     ''' <param name="e">Specifies arguments that are associated with the
     ''' event.</param>
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>
     ''' A <see cref="System.Windows.RoutedEventArgs"/> contains information that
     ''' a <see cref="System.EventArgs"/> does not have.
     ''' <see cref="System.Windows.RoutedEventArgs"/> has many derived types.
     ''' </remarks>
-    Private Sub ShowExceptionMessageBox(
+    Public Shared Sub ShowExceptionMessageBox(
         ByVal caughtBy As System.Reflection.MethodBase,
-        ByVal caughtEx As System.Exception,
-        ByVal sender As Object,
-        ByVal e As System.Windows.RoutedEventArgs)
+        ByVal caughtEx As System.Exception, ByVal sender As Object,
+        ByVal e As System.Windows.RoutedEventArgs,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         ' Argument checking.
         If caughtEx Is Nothing Then
-            Me.ShowExceptionArgNotice(NameOf(caughtEx),
-                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
+            ShowExceptionArgNotice(NameOf(caughtEx),
+                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.", owner)
             Exit Sub ' Early exit.
         End If
         Dim CaughtByName As System.String = If(caughtBy Is Nothing,
@@ -541,7 +579,7 @@ Partial Friend Class ColorDlgWindow
 
         ' Construct and show the notice.
         Dim Caption As System.String = "Routed Event Failure"
-        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
+        ShowExceptionNotice(Caption, IntroDetails, TechDetails, owner)
 
     End Sub ' ShowExceptionMessageBox
 
@@ -556,20 +594,24 @@ Partial Friend Class ColorDlgWindow
     ''' event.</param>
     ''' <param name="e">Specifies arguments that are associated with the
     ''' event.</param>
+    ''' <param name="owner">Optional. Specifies the Window that should own the
+    ''' MessageBox containing the exception details. When
+    ''' <paramref name="owner"/> is not specified, the MessageBox is owned by
+    ''' the window that is currently active.</param>
     ''' <remarks>
     ''' A <see cref="System.ComponentModel.CancelEventArgs"/> contains
     ''' information that a <see cref="System.EventArgs"/> does not have.
     ''' </remarks>
-    Private Sub ShowExceptionMessageBox(
+    Public Shared Sub ShowExceptionMessageBox(
         ByVal caughtBy As System.Reflection.MethodBase,
-        ByVal caughtEx As System.Exception,
-        ByVal sender As Object,
-        ByVal e As System.ComponentModel.CancelEventArgs)
+        ByVal caughtEx As System.Exception, ByVal sender As Object,
+        ByVal e As System.ComponentModel.CancelEventArgs,
+        ByVal Optional owner As System.Windows.Window = Nothing)
 
         ' Argument checking.
         If caughtEx Is Nothing Then
-            Me.ShowExceptionArgNotice(NameOf(caughtEx),
-                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
+            ShowExceptionArgNotice(NameOf(caughtEx),
+                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.", owner)
             Exit Sub ' Early exit.
         End If
         Dim CaughtByName As System.String = If(caughtBy Is Nothing,
@@ -591,10 +633,10 @@ Partial Friend Class ColorDlgWindow
         ' Construct and show the notice.
         Dim Caption As System.String = "Cancel Event Failure"
 
-        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
+        ShowExceptionNotice(Caption, IntroDetails, TechDetails, owner)
 
     End Sub ' ShowExceptionMessageBox
 
 #End Region ' "Exception Message Box"
 
-End Class ' ColorDlgWindow
+End Class ' ExceptionHandler

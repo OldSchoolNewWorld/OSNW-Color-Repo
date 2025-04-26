@@ -407,133 +407,133 @@ Public Class ColorDialog
 
 #End Region ' "Properties"
 
-#Region "Exception Handling"
+    '#Region "Exception Handling"
 
-    ''' <summary>
-    ''' Reports an invalid call to one of the
-    ''' <c>ShowExceptionMessageBox(&lt;varies&gt;)</c> implementations.
-    ''' </summary>
-    ''' <param name="paramName">Specifies the name of the parameter that was
-    ''' invalid.</param>
-    ''' <param name="reason">Specifies the reason for the rejection.</param>
-    ''' <remarks>
-    ''' This is for invalid calls to
-    ''' <c>ShowExceptionMessageBox(&lt;varies&gt;)</c>, not for generic invalid
-    ''' procedure calls.
-    ''' Note: A <c>ColorDialog</c> is not a <c>Window</c>; it cannot be used as
-    ''' the <c>owner</c> of the <c>MessageBox</c>. The reference here is changed
-    ''' to <c>Me.Owner</c>, which is a <c>Window</c>.
-    ''' </remarks>
-    Private Sub ShowExceptionArgNotice(ByVal paramName As System.String,
-                                       ByVal reason As System.String)
+    '    ''' <summary>
+    '    ''' Reports an invalid call to one of the
+    '    ''' <c>ShowExceptionMessageBox(&lt;varies&gt;)</c> implementations.
+    '    ''' </summary>
+    '    ''' <param name="paramName">Specifies the name of the parameter that was
+    '    ''' invalid.</param>
+    '    ''' <param name="reason">Specifies the reason for the rejection.</param>
+    '    ''' <remarks>
+    '    ''' This is for invalid calls to
+    '    ''' <c>ShowExceptionMessageBox(&lt;varies&gt;)</c>, not for generic invalid
+    '    ''' procedure calls.
+    '    ''' Note: A <c>ColorDialog</c> is not a <c>Window</c>; it cannot be used as
+    '    ''' the <c>owner</c> of the <c>MessageBox</c>. The reference here is changed
+    '    ''' to <c>Me.Owner</c>, which is a <c>Window</c>.
+    '    ''' </remarks>
+    '    Private Sub ShowExceptionArgNotice(ByVal paramName As System.String,
+    '                                       ByVal reason As System.String)
 
-        ' REF: OSNW-Exception-Handling-Models
-        ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
+    '        ' REF: OSNW-Exception-Handling-Models
+    '        ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
 
-        Dim CaptionStr As System.String = "Invalid ShowExceptionMessageBox"
-        Dim IntroDetails As System.String = System.String.Concat(
-            "An invalid exception notice was requested.",
-            $" There is a problem with '{paramName}'.")
+    '        Dim CaptionStr As System.String = "Invalid ShowExceptionMessageBox"
+    '        Dim IntroDetails As System.String = System.String.Concat(
+    '            "An invalid exception notice was requested.",
+    '            $" There is a problem with '{paramName}'.")
 
-        ' Construct and show the notice.
-        Dim ShownDetail As System.String = System.String.Concat(IntroDetails,
-            System.Environment.NewLine, System.Environment.NewLine, reason)
-        If Me.Owner Is Nothing Then
-            ' Show without Me.Owner.
-            ' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.messagebox.show?view=windowsdesktop-9.0#remarks
-            ' Use an overload of the Show method, which enables you to specify
-            ' an owner window. Otherwise, the message box is owned by the window
-            ' that is currently active.
-            System.Windows.MessageBox.Show(ShownDetail, CaptionStr,
-                                           System.Windows.MessageBoxButton.OK,
-                                           System.Windows.MessageBoxImage.Error)
-        Else
-            ' Use Me.Owner.
-            System.Windows.MessageBox.Show(Me.Owner, ShownDetail, CaptionStr,
-                                           System.Windows.MessageBoxButton.OK,
-                                           System.Windows.MessageBoxImage.Error)
-        End If
+    '        ' Construct and show the notice.
+    '        Dim ShownDetail As System.String = System.String.Concat(IntroDetails,
+    '            System.Environment.NewLine, System.Environment.NewLine, reason)
+    '        If Me.Owner Is Nothing Then
+    '            ' Show without Me.Owner.
+    '            ' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.messagebox.show?view=windowsdesktop-9.0#remarks
+    '            ' Use an overload of the Show method, which enables you to specify
+    '            ' an owner window. Otherwise, the message box is owned by the window
+    '            ' that is currently active.
+    '            System.Windows.MessageBox.Show(ShownDetail, CaptionStr,
+    '                                           System.Windows.MessageBoxButton.OK,
+    '                                           System.Windows.MessageBoxImage.Error)
+    '        Else
+    '            ' Use Me.Owner.
+    '            System.Windows.MessageBox.Show(Me.Owner, ShownDetail, CaptionStr,
+    '                                           System.Windows.MessageBoxButton.OK,
+    '                                           System.Windows.MessageBoxImage.Error)
+    '        End If
 
-    End Sub ' ShowExceptionArgNotice
+    '    End Sub ' ShowExceptionArgNotice
 
-    ''' <summary>
-    ''' Provides a consistent generic appearance for messages.
-    ''' </summary>
-    ''' <param name="captionStr">Specifies the caption to show on the 
-    ''' <c>MessageBox</c>.</param>
-    ''' <param name="introDetails">Specifies a summary of the exception.</param>
-    ''' <param name="techDetails">Specifies detailed information about the 
-    ''' exception.</param>
-    ''' <remarks>
-    ''' Note: A <c>ColorDialog</c> is not a <c>Window</c>; it cannot be used as
-    ''' the <c>owner</c> of the <c>MessageBox</c>. The reference here is changed
-    ''' to <c>Me.Owner</c>, which is a <c>Window</c>.
-    ''' </remarks>
-    Private Sub ShowExceptionNotice(ByVal captionStr As System.String,
-        ByVal introDetails As System.String, ByVal techDetails As System.String)
+    '    ''' <summary>
+    '    ''' Provides a consistent generic appearance for messages.
+    '    ''' </summary>
+    '    ''' <param name="captionStr">Specifies the caption to show on the 
+    '    ''' <c>MessageBox</c>.</param>
+    '    ''' <param name="introDetails">Specifies a summary of the exception.</param>
+    '    ''' <param name="techDetails">Specifies detailed information about the 
+    '    ''' exception.</param>
+    '    ''' <remarks>
+    '    ''' Note: A <c>ColorDialog</c> is not a <c>Window</c>; it cannot be used as
+    '    ''' the <c>owner</c> of the <c>MessageBox</c>. The reference here is changed
+    '    ''' to <c>Me.Owner</c>, which is a <c>Window</c>.
+    '    ''' </remarks>
+    '    Private Sub ShowExceptionNotice(ByVal captionStr As System.String,
+    '        ByVal introDetails As System.String, ByVal techDetails As System.String)
 
-        ' REF: OSNW-Exception-Handling-Models
-        ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
+    '        ' REF: OSNW-Exception-Handling-Models
+    '        ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
 
-        ' Construct and show the notice.
-        Dim ShownDetail As System.String = System.String.Concat(introDetails,
-            System.Environment.NewLine, System.Environment.NewLine, techDetails)
-        If Me.Owner Is Nothing Then
-            ' Show without Me.Owner.
-            ' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.messagebox.show?view=windowsdesktop-9.0#remarks
-            ' Use an overload of the Show method, which enables you to specify
-            ' an owner window. Otherwise, the message box is owned by the window
-            ' that is currently active.
-            System.Windows.MessageBox.Show(ShownDetail, captionStr,
-                                           System.Windows.MessageBoxButton.OK,
-                                           System.Windows.MessageBoxImage.Error)
-        Else
-            ' Use Me.Owner.
-            System.Windows.MessageBox.Show(Me.Owner, ShownDetail, captionStr,
-                                           System.Windows.MessageBoxButton.OK,
-                                           System.Windows.MessageBoxImage.Error)
-        End If
+    '        ' Construct and show the notice.
+    '        Dim ShownDetail As System.String = System.String.Concat(introDetails,
+    '            System.Environment.NewLine, System.Environment.NewLine, techDetails)
+    '        If Me.Owner Is Nothing Then
+    '            ' Show without Me.Owner.
+    '            ' REF: https://learn.microsoft.com/en-us/dotnet/api/system.windows.messagebox.show?view=windowsdesktop-9.0#remarks
+    '            ' Use an overload of the Show method, which enables you to specify
+    '            ' an owner window. Otherwise, the message box is owned by the window
+    '            ' that is currently active.
+    '            System.Windows.MessageBox.Show(ShownDetail, captionStr,
+    '                                           System.Windows.MessageBoxButton.OK,
+    '                                           System.Windows.MessageBoxImage.Error)
+    '        Else
+    '            ' Use Me.Owner.
+    '            System.Windows.MessageBox.Show(Me.Owner, ShownDetail, captionStr,
+    '                                           System.Windows.MessageBoxButton.OK,
+    '                                           System.Windows.MessageBoxImage.Error)
+    '        End If
 
-    End Sub ' ShowExceptionNotice
+    '    End Sub ' ShowExceptionNotice
 
-    ''' <summary>
-    ''' Shows details about an <c>Exception</c> that was caught.
-    ''' </summary>
-    ''' <param name="caughtBy">Specifies the process in which an exception was
-    ''' caught.</param>
-    ''' <param name="caughtEx">Provides the exception that was caught.</param>
-    Private Sub ShowExceptionMessageBox(
-        ByVal caughtBy As System.Reflection.MethodBase,
-        ByVal caughtEx As System.Exception)
+    '    ''' <summary>
+    '    ''' Shows details about an <c>Exception</c> that was caught.
+    '    ''' </summary>
+    '    ''' <param name="caughtBy">Specifies the process in which an exception was
+    '    ''' caught.</param>
+    '    ''' <param name="caughtEx">Provides the exception that was caught.</param>
+    '    Private Sub ShowExceptionMessageBox(
+    '        ByVal caughtBy As System.Reflection.MethodBase,
+    '        ByVal caughtEx As System.Exception)
 
-        ' REF: OSNW-Exception-Handling-Models
-        ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
+    '        ' REF: OSNW-Exception-Handling-Models
+    '        ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
 
-        ' Argument checking.
-        If caughtEx Is Nothing Then
-            Me.ShowExceptionArgNotice(NameOf(caughtEx),
-                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
-            Exit Sub ' Early exit.
-        End If
-        Dim CaughtByName As System.String = If(caughtBy Is Nothing,
-            $"Unspecified '{NameOf(caughtBy)}'", caughtBy.Name)
+    '        ' Argument checking.
+    '        If caughtEx Is Nothing Then
+    '            Me.ShowExceptionArgNotice(NameOf(caughtEx),
+    '                $"'{NameOf(caughtEx)}' cannot be 'Nothing'/'Null'.")
+    '            Exit Sub ' Early exit.
+    '        End If
+    '        Dim CaughtByName As System.String = If(caughtBy Is Nothing,
+    '            $"Unspecified '{NameOf(caughtBy)}'", caughtBy.Name)
 
-        ' Gather information of interest.
-        Dim CaughtExMessage As System.String = caughtEx.Message
-        Dim CaughtExBaseException As System.Exception =
-            caughtEx.GetBaseException
-        Dim IntroDetails As System.String =
-            $"'{CaughtByName}' failed with message '{CaughtExMessage}'."
-        Dim TechDetails As System.String =
-            $"The initial cause is {CaughtExBaseException}."
+    '        ' Gather information of interest.
+    '        Dim CaughtExMessage As System.String = caughtEx.Message
+    '        Dim CaughtExBaseException As System.Exception =
+    '            caughtEx.GetBaseException
+    '        Dim IntroDetails As System.String =
+    '            $"'{CaughtByName}' failed with message '{CaughtExMessage}'."
+    '        Dim TechDetails As System.String =
+    '            $"The initial cause is {CaughtExBaseException}."
 
-        ' Construct and show the notice.
-        Dim Caption As System.String = "Process Failure"
-        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
+    '        ' Construct and show the notice.
+    '        Dim Caption As System.String = "Process Failure"
+    '        Me.ShowExceptionNotice(Caption, IntroDetails, TechDetails)
 
-    End Sub ' ShowExceptionMessageBox
+    '    End Sub ' ShowExceptionMessageBox
 
-#End Region ' "Exception Handling"
+    '#End Region ' "Exception Handling"
 
 #Region "Constructor Helpers"
 
@@ -587,15 +587,26 @@ Public Class ColorDialog
                     NameOf(icoFilePath))
             End If
 
-            Using IcoStream As New System.IO.FileStream(
-                icoFilePath, FileMode.Open, FileAccess.Read)
+            Try
+                Using IcoStream As New System.IO.FileStream(
+                        icoFilePath, FileMode.Open, FileAccess.Read)
 
-                Dim Decoder As System.Windows.Media.Imaging.BitmapDecoder =
-                    System.Windows.Media.Imaging.BitmapDecoder.Create(IcoStream,
+                    Dim Decoder As _
+                            System.Windows.Media.Imaging.BitmapDecoder =
+                            System.Windows.Media.Imaging.BitmapDecoder.Create(
+                        IcoStream,
                         System.Windows.Media.Imaging.BitmapCreateOptions.None,
                         System.Windows.Media.Imaging.BitmapCacheOption.OnLoad)
-                Return Decoder.Frames(0)
-            End Using
+                    Return Decoder.Frames(0)
+                End Using
+            Catch CaughtEx As System.Exception
+                ' Respond to an anticipated exception.
+                Dim CaughtBy As System.Reflection.MethodBase =
+                        System.Reflection.MethodBase.GetCurrentMethod
+                ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+            End Try
+            ' On getting this far without success, ...
+            Return Nothing
 
         End Function ' ConvertIcoToBitmapSource
 
@@ -612,12 +623,21 @@ Public Class ColorDialog
         ByVal icoFilePath As System.String) _
         As System.Windows.Media.ImageSource
 
-        ' This sequence works, but it needs to look for the file in its original
-        ' location.
-        Dim BSource As System.Windows.Media.Imaging.BitmapSource =
-                ColorDialog.IcoToBitmapSourceConverter.ConvertIcoToBitmapSource(
-                   icoFilePath)
-        Return BSource
+        Try
+            ' This sequence works, but it needs to look for the file in its original
+            ' location.
+            Dim BSource As System.Windows.Media.Imaging.BitmapSource =
+                    ColorDialog.IcoToBitmapSourceConverter.ConvertIcoToBitmapSource(
+                       icoFilePath)
+            Return BSource
+        Catch CaughtEx As System.Exception
+            ' Report the unexpected exception.
+            Dim CaughtBy As System.Reflection.MethodBase =
+                System.Reflection.MethodBase.GetCurrentMethod()
+            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+        End Try
+        ' On getting this far without success, ...
+        Return Nothing
     End Function ' GetIconFromFile
 
     ''' <summary>
@@ -632,12 +652,22 @@ Public Class ColorDialog
         ByVal referencedAssembly As System.String,
         ByVal fileName As System.String) As System.String
 
-        ' Ref: Referenced Assembly Resource File
-        ' https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/pack-uris-in-wpf#referenced-assembly-resource-file
+        Try
 
-        Return $"pack://application:,,,/{referencedAssembly}" &
-                $";component/Resources/{fileName}"
+            ' Ref: Referenced Assembly Resource File
+            ' https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/pack-uris-in-wpf#referenced-assembly-resource-file
 
+            Return $"pack://application:,,,/{referencedAssembly}" &
+                    $";component/Resources/{fileName}"
+
+        Catch CaughtEx As System.Exception
+            ' Report the unexpected exception.
+            Dim CaughtBy As System.Reflection.MethodBase =
+                System.Reflection.MethodBase.GetCurrentMethod()
+            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+        End Try
+        ' On getting this far without success, ...
+        Return Nothing
     End Function ' GetIconPackURI
 
     ''' <summary>
@@ -645,18 +675,28 @@ Public Class ColorDialog
     ''' alternate method to select the icon for the dialog. It can be used to
     ''' load an icon embedded in a DLL.
     ''' </summary>
-    Private Shared Function GetIconFromResource(ByVal iconPath As System.String) As _
-        System.Windows.Media.ImageSource
+    Private Shared Function GetIconFromResource(
+        ByVal iconPath As System.String) As System.Windows.Media.ImageSource
 
-        ' REF: Setting WPF image source in code
-        ' https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
-        ' REF: Pack URIs in WPF
-        ' https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/pack-uris-in-wpf?view=netframeworkdesktop-4.8&redirectedfrom=MSDN
+        Try
 
-        Dim IconBitmapImage As New System.Windows.Media.Imaging.BitmapImage(
+            ' REF: Setting WPF image source in code
+            ' https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
+            ' REF: Pack URIs in WPF
+            ' https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/pack-uris-in-wpf?view=netframeworkdesktop-4.8&redirectedfrom=MSDN
+
+            Dim IconBitmapImage As New System.Windows.Media.Imaging.BitmapImage(
                 New System.Uri(iconPath))
-        Return IconBitmapImage
+            Return IconBitmapImage
 
+        Catch CaughtEx As System.Exception
+            ' Report the unexpected exception.
+            Dim CaughtBy As System.Reflection.MethodBase =
+                System.Reflection.MethodBase.GetCurrentMethod()
+            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+        End Try
+        ' On getting this far without success, ...
+        Return Nothing
     End Function ' GetIconFromResource
 
 #End Region ' "Constructor Helpers"
@@ -669,27 +709,30 @@ Public Class ColorDialog
     ''' class.
     ''' </summary>
     Public Sub New()
-        ' Assign initial defaults.
-        With Me
+        Try
 
-            ' Set the initial Window features.
-            '            .m_DialogResult = Nothing ' Matches default.
-            '            .m_Owner = Nothing ' Matches default.
-            .m_ResizeMode = SHWV.DEFAULTRESIZEMODE
-            .m_ShowInTaskbar = SHWV.DEFAULTSHOWINTASKBAR
-            .m_Title = SHWV.DEFAULTDIALOGTITLE
-            .m_WindowStartupLocation = SHWV.DEFAULTWINDOWSTARTUPLOCATION
+            With Me
 
-            ' Set the initial tab visibility to defaults.
-            .m_ShowConvertTab = SHWV.DEFAULTSHOWCONVERTTAB
-            .m_ShowDefinedTab = SHWV.DEFAULTSHOWDEFINEDTAB
-            .m_ShowRgbTab = SHWV.DEFAULTSHOWRGBTTAB
-            .m_ShowHslTab = SHWV.DEFAULTSHOWHSLTAB
-            .m_ShowHsvTab = SHWV.DEFAULTSHOWHSVTAB
-            .m_ShowShadeTab = SHWV.DEFAULTSHOWSHADETAB
-            .m_ShowTintTab = SHWV.DEFAULTSHOWTINTTAB
-            .m_ShowToneTab = SHWV.DEFAULTSHOWTONETAB
-            .m_ShowBlendTab = SHWV.DEFAULTSHOWBLENDTAB
+                ' Set the initial Window features.
+                '            .m_DialogResult = Nothing ' Matches default.
+                '            .m_Owner = Nothing ' Matches default.
+                .m_ResizeMode = SHWV.DEFAULTRESIZEMODE
+                .m_ShowInTaskbar = SHWV.DEFAULTSHOWINTASKBAR
+                .m_Title = SHWV.DEFAULTDIALOGTITLE
+                .m_WindowStartupLocation = SHWV.DEFAULTWINDOWSTARTUPLOCATION
+
+                ' Set the initial tab visibility to defaults.
+                .m_ShowConvertTab = SHWV.DEFAULTSHOWCONVERTTAB
+                .m_ShowDefinedTab = SHWV.DEFAULTSHOWDEFINEDTAB
+                .m_ShowRgbTab = SHWV.DEFAULTSHOWRGBTTAB
+                .m_ShowHslTab = SHWV.DEFAULTSHOWHSLTAB
+                .m_ShowHsvTab = SHWV.DEFAULTSHOWHSVTAB
+                .m_ShowShadeTab = SHWV.DEFAULTSHOWSHADETAB
+                .m_ShowTintTab = SHWV.DEFAULTSHOWTINTTAB
+                .m_ShowToneTab = SHWV.DEFAULTSHOWTONETAB
+                .m_ShowBlendTab = SHWV.DEFAULTSHOWBLENDTAB
+
+            End With
 
             ' DEV: The ColorDlgWindow is configured with a default icon that
             ' is set in its XAML layout. If m_Icon for the ColorDialog is left at
@@ -720,17 +763,12 @@ Public Class ColorDialog
             '    Dim FilePath As System.String = "\Resources\InitFromFile.ico"
             '    Dim IconPath As System.String =
             '        $"{ReposPath}{ProjectPath}{FilePath}"
-            '    .m_Icon = GetIconFromFile(IconPath)
+            '    Me.m_Icon = GetIconFromFile(IconPath)
             'Catch CaughtEx As System.Exception
-
             '    ' Respond to an anticipated exception.
             '    Dim CaughtBy As System.Reflection.MethodBase =
             '        System.Reflection.MethodBase.GetCurrentMethod
-            '    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-
-            '    ' Optional rethrow of the caught exception.
-            '    'Throw
-
+            '    ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
             'End Try
 
             '' DEV: Load an icon from an embedded resource.
@@ -741,17 +779,12 @@ Public Class ColorDialog
             '    Dim EmbeddedFileName As System.String = "InitEmbeddedResource.ico"
             '    Dim IconPath As System.String =
             '        GetIconPackURI(ReferencedAssembly, EmbeddedFileName)
-            '    .m_Icon = GetIconFromResource(IconPath)
+            '    Me.m_Icon = GetIconFromResource(IconPath)
             'Catch CaughtEx As System.Exception
-
             '    ' Respond to an anticipated exception.
             '    Dim CaughtBy As System.Reflection.MethodBase =
             '        System.Reflection.MethodBase.GetCurrentMethod
-            '    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-
-            '    ' Optional rethrow of the caught exception.
-            '    'Throw
-
+            '    ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
             'End Try
 
             '' DEV: Load an icon from an overridable file.
@@ -760,26 +793,26 @@ Public Class ColorDialog
             '    ' REF: C# Executable Executing directory
             '    ' https://stackoverflow.com/questions/7025269/c-sharp-executable-executing-directory
             '    Dim AssyPath As System.String = System.IO.Path.GetDirectoryName(
-            '        Assembly.GetExecutingAssembly().Location)
+            '        System.Reflection.Assembly.GetExecutingAssembly().Location)
 
             '    ' Now use that info.
             '    Dim FilePath As System.String = "\Resources\Override.ico"
             '    Dim IconPath As System.String = $"{AssyPath}{FilePath}"
-            '    .m_Icon = GetIconFromFile(IconPath)
+            '    Me.m_Icon = GetIconFromFile(IconPath)
 
             'Catch CaughtEx As System.Exception
-
             '    ' Respond to an anticipated exception.
             '    Dim CaughtBy As System.Reflection.MethodBase =
             '        System.Reflection.MethodBase.GetCurrentMethod
-            '    Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-
-            '    ' Optional rethrow of the caught exception.
-            '    'Throw
-
+            '    ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
             'End Try
 
-        End With
+        Catch CaughtEx As System.Exception
+            ' Report the unexpected exception.
+            Dim CaughtBy As System.Reflection.MethodBase =
+                System.Reflection.MethodBase.GetCurrentMethod()
+            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+        End Try
     End Sub ' New
 
 #End Region ' "Constructors"
@@ -801,53 +834,61 @@ Public Class ColorDialog
     ''' (System.Windows.Window.Closed).
     ''' </exception>
     Public Function ShowDialog() As System.Boolean?
-        Dim DlgResult As System.Boolean?
+        Try
+
+            Dim DlgResult As System.Boolean?
 #Disable Warning IDE0017 ' Simplify object initialization
-        Dim HostedWindow As New OSNW.Dialog.ColorDlgWindow
+            Dim HostedWindow As New OSNW.Dialog.ColorDlgWindow
 #Enable Warning IDE0017 ' Simplify object initialization
 
-        ' Set the model properties that get sent to the window.
+            ' Set the model properties that get sent to the window.
 
-        ' Set the dialog model properties that get sent to the window.
-        HostedWindow.Owner = Me.Owner
-        HostedWindow.ResizeMode = Me.ResizeMode
-        HostedWindow.ShowInTaskbar = Me.ShowInTaskbar
-        HostedWindow.Title = Me.Title
-        HostedWindow.WindowStartupLocation = Me.WindowStartupLocation
+            ' Set the dialog model properties that get sent to the window.
+            HostedWindow.Owner = Me.Owner
+            HostedWindow.ResizeMode = Me.ResizeMode
+            HostedWindow.ShowInTaskbar = Me.ShowInTaskbar
+            HostedWindow.Title = Me.Title
+            HostedWindow.WindowStartupLocation = Me.WindowStartupLocation
 
-        ' Only push .Icon if it has been set in the ColorDialog.
-        If Me.Icon IsNot Nothing Then
-            HostedWindow.Icon = Me.Icon
-        End If
+            ' Only push .Icon if it has been set in the ColorDialog.
+            If Me.Icon IsNot Nothing Then
+                HostedWindow.Icon = Me.Icon
+            End If
 
-        ' Set the localized properties that get sent to the window.
-        HostedWindow.Red = Me.Red
-        HostedWindow.Green = Me.Green
-        HostedWindow.Blue = Me.Blue
-        HostedWindow.ShowConvertTab = Me.ShowConvertTab
-        HostedWindow.ShowDefinedTab = Me.ShowDefinedTab
-        HostedWindow.ShowRgbTab = Me.ShowRgbTab
-        HostedWindow.ShowHslTab = Me.ShowHslTab
-        HostedWindow.ShowHsvTab = Me.ShowHsvTab
-        HostedWindow.ShowShadeTab = Me.ShowShadeTab
-        HostedWindow.ShowTintTab = Me.ShowTintTab
-        HostedWindow.ShowToneTab = Me.ShowToneTab
-        HostedWindow.ShowBlendTab = Me.ShowBlendTab
+            ' Set the localized properties that get sent to the window.
+            HostedWindow.Red = Me.Red
+            HostedWindow.Green = Me.Green
+            HostedWindow.Blue = Me.Blue
+            HostedWindow.ShowConvertTab = Me.ShowConvertTab
+            HostedWindow.ShowDefinedTab = Me.ShowDefinedTab
+            HostedWindow.ShowRgbTab = Me.ShowRgbTab
+            HostedWindow.ShowHslTab = Me.ShowHslTab
+            HostedWindow.ShowHsvTab = Me.ShowHsvTab
+            HostedWindow.ShowShadeTab = Me.ShowShadeTab
+            HostedWindow.ShowTintTab = Me.ShowTintTab
+            HostedWindow.ShowToneTab = Me.ShowToneTab
+            HostedWindow.ShowBlendTab = Me.ShowBlendTab
 
-        ' Show the dialog window. Process the result.
-        DlgResult = HostedWindow.ShowDialog()
-        If DlgResult Then
-            ' Extract any data being returned.
-            Me.Red = HostedWindow.Red
-            Me.Green = HostedWindow.Green
-            Me.Blue = HostedWindow.Blue
-            'Else
-            '' Is anything needed when ShowDialog is false?
-        End If
+            ' Show the dialog window. Process the result.
+            DlgResult = HostedWindow.ShowDialog()
+            If DlgResult Then
+                ' Extract any data being returned.
+                Me.Red = HostedWindow.Red
+                Me.Green = HostedWindow.Green
+                Me.Blue = HostedWindow.Blue
+                'Else
+                '' Is anything needed when ShowDialog is false?
+            End If
 
-        Me.DialogResult = DlgResult
-        Return DlgResult
+            Me.DialogResult = DlgResult
+            Return DlgResult
 
+        Catch CaughtEx As System.Exception
+            ' Report the unexpected exception.
+            Dim CaughtBy As System.Reflection.MethodBase =
+                System.Reflection.MethodBase.GetCurrentMethod()
+            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+        End Try
     End Function ' ShowDialog
 
 #End Region ' "Methods"
