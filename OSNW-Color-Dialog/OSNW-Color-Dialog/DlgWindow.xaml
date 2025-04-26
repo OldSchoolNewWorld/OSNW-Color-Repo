@@ -93,7 +93,7 @@
                             <TextBox x:Name="ConvertHueFractionTextBox" Text="HslHue"
                                      ToolTip="Fix LoadToolTips!">
                             </TextBox>
-                            <Label Margin="0,3,0,0">Saturation</Label>
+                            <Label Margin="0,3,0,0">Saturation (HSL)</Label>
                             <TextBox x:Name="ConvertHslSaturationTextBox"
                                      Text="HslSaturation"
                                      ToolTip="Fix LoadToolTips!">
@@ -113,7 +113,7 @@
                             <TextBox x:Name="ConvertHueDegreesTextBox" Text="HsvHue"
                                      ToolTip="Fix LoadToolTips!">
                             </TextBox>
-                            <Label Margin="0,3,0,0">Saturation</Label>
+                            <Label Margin="0,3,0,0">Saturation (HSV)</Label>
                             <TextBox x:Name="ConvertHsvSaturationTextBox"
                                      Text="HsvSaturation"
                                      ToolTip="Fix LoadToolTips!">
