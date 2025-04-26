@@ -89,8 +89,8 @@
                                DockPanel.Dock="Left" LastChildFill="False"
                                Margin="30,0,6,6">
                         <StackPanel x:Name="ConvertHslStackPanel">
-                            <Label>Hue</Label>
-                            <TextBox x:Name="ConvertHslHueTextBox" Text="HslHue"
+                            <Label>Hue (fraction)</Label>
+                            <TextBox x:Name="ConvertHueFractionTextBox" Text="HslHue"
                                      ToolTip="Fix LoadToolTips!">
                             </TextBox>
                             <Label Margin="0,3,0,0">Saturation</Label>
@@ -109,8 +109,8 @@
                                DockPanel.Dock="Left" LastChildFill="False"
                                Margin="30,0,12,6">
                         <StackPanel x:Name="ConvertHsvStackPanel">
-                            <Label>Hue</Label>
-                            <TextBox x:Name="ConvertHsvHueTextBox" Text="HsvHue"
+                            <Label>Hue (degrees)</Label>
+                            <TextBox x:Name="ConvertHueDegreesTextBox" Text="HsvHue"
                                      ToolTip="Fix LoadToolTips!">
                             </TextBox>
                             <Label Margin="0,3,0,0">Saturation</Label>
@@ -269,11 +269,12 @@
                                DockPanel.Dock="Bottom"
                                HorizontalAlignment="Center"
                                LastChildFill="False">
-                        <Label x:Name="HslTweakHueLabel" Content="Hue: 123.45"/>
+                        <Label x:Name="HslTweakHueDegreesLabel" Content="Hue(degrees): 359.99"/>
+                        <Label x:Name="HslTweakHueFractionLabel" Content="Hue(fraction): 0.99"/>
                         <Label x:Name="HslTweakSaturationLabel"
-                               Content="Saturation: 123.45"/>
+                               Content="Saturation: 0.99"/>
                         <Label x:Name="HslTweakLuminanceLabel"
-                               Content="Luminance: 123.45"/>
+                               Content="Luminance: 0.99"/>
                     </DockPanel>
                     <DockPanel x:Name="HslTweakDockPanel"
                                DockPanel.Dock="Bottom" LastChildFill="False">
@@ -341,11 +342,12 @@
                                DockPanel.Dock="Bottom"
                                HorizontalAlignment="Center"
                                LastChildFill="False">
-                        <Label x:Name="HsvTweakHueLabel" Content="Hue: 123.45"/>
+                        <Label x:Name="HsvTweakHueDegreesLabel" Content="Hue(degrees): 359.99"/>
+                        <Label x:Name="HsvTweakHueFractionLabel" Content="Hue(fraction): 0.99"/>
                         <Label x:Name="HsvTweakSaturationLabel"
-                               Content="Saturation: 123.45"/>
+                               Content="Saturation: 0.99"/>
                         <Label x:Name="HsvTweakValueLabel"
-                               Content="Value: 123.45"/>
+                               Content="Value: 0.99"/>
                     </DockPanel>
                     <DockPanel x:Name="HsvTweakDockPanel"
                                DockPanel.Dock="Bottom" LastChildFill="False">

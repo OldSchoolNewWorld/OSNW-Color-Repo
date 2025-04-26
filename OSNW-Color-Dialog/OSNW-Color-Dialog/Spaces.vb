@@ -74,18 +74,18 @@ Partial Friend Class ColorDlgWindow
             .ConvertTabPushing = True
             Try
                 ' Combine the changed value with two existing values.
-                If sendingTextBox.Equals(.ConvertHslHueTextBox) Then
-                    OSNW.Graphics.ColorUtilities.HSLtoRGB(doubleVal, .HslWorkS,
-                        .HslWorkL, .UnderlyingR, .UnderlyingG, .UnderlyingB)
+                If sendingTextBox.Equals(.ConvertHueFractionTextBox) Then
+                    OSNW.Graphics.ColorUtilities.HSVtoRGB(doubleVal, .HsvWorkS,
+                        .HsvWorkV, .UnderlyingR, .UnderlyingG, .UnderlyingB)
+                ElseIf sendingTextBox.Equals(.ConvertHueDegreesTextBox) Then
+                    OSNW.Graphics.ColorUtilities.HSVtoRGB(doubleVal / 360.0, .HsvWorkS,
+                        .HsvWorkV, .UnderlyingR, .UnderlyingG, .UnderlyingB)
                 ElseIf sendingTextBox.Equals(.ConvertHslSaturationTextBox) Then
                     OSNW.Graphics.ColorUtilities.HSLtoRGB(.HslWorkH, doubleVal,
                         .HslWorkL, .UnderlyingR, .UnderlyingG, .UnderlyingB)
                 ElseIf sendingTextBox.Equals(.ConvertHslLuminanceTextBox) Then
                     OSNW.Graphics.ColorUtilities.HSLtoRGB(.HslWorkH, .HslWorkS,
                         doubleVal, .UnderlyingR, .UnderlyingG, .UnderlyingB)
-                ElseIf sendingTextBox.Equals(.ConvertHsvHueTextBox) Then
-                    OSNW.Graphics.ColorUtilities.HSVtoRGB(doubleVal, .HsvWorkS,
-                        .HsvWorkV, .UnderlyingR, .UnderlyingG, .UnderlyingB)
                 ElseIf sendingTextBox.Equals(.ConvertHsvSaturationTextBox) Then
                     OSNW.Graphics.ColorUtilities.HSVtoRGB(.HsvWorkH, doubleVal,
                         .HsvWorkV, .UnderlyingR, .UnderlyingG, .UnderlyingB)
@@ -136,9 +136,13 @@ Partial Friend Class ColorDlgWindow
                     .ConvertHtmlTextBox.Text = HtmlText
                 End If
 
-                If exceptFor IsNot .ConvertHslHueTextBox Then
-                    .ConvertHslHueTextBox.Text = .G4ValueStr(.HslWorkH)
+                If exceptFor IsNot .ConvertHueFractionTextBox Then
+                    .ConvertHueFractionTextBox.Text = .G4ValueStr(.HslWorkH)
                 End If
+                If exceptFor IsNot .ConvertHueDegreesTextBox Then
+                    .ConvertHueDegreesTextBox.Text = .G4ValueStr(.HsvWorkH * 360)
+                End If
+
                 If exceptFor IsNot .ConvertHslSaturationTextBox Then
                     .ConvertHslSaturationTextBox.Text = .G4ValueStr(.HslWorkS)
                 End If
@@ -146,9 +150,6 @@ Partial Friend Class ColorDlgWindow
                     .ConvertHslLuminanceTextBox.Text = .G4ValueStr(.HslWorkL)
                 End If
 
-                If exceptFor IsNot .ConvertHsvHueTextBox Then
-                    .ConvertHsvHueTextBox.Text = .G4ValueStr(.HsvWorkH)
-                End If
                 If exceptFor IsNot .ConvertHsvSaturationTextBox Then
                     .ConvertHsvSaturationTextBox.Text = .G4ValueStr(.HsvWorkS)
                 End If
@@ -879,7 +880,10 @@ Partial Friend Class ColorDlgWindow
 
         ' Update the displayed per-component values.
         With Me
-            .HslTweakHueLabel.Content = .DoubleValueStr("Hue", .HslWorkH)
+            .HslTweakHueDegreesLabel.Content =
+                .DoubleValueStr("Hue degrees", .HslWorkH * 360.0)
+            .HslTweakHueFractionLabel.Content =
+                .DoubleValueStr("Hue fraction", .HslWorkH)
             .HslTweakSaturationLabel.Content =
                 .DoubleValueStr("Saturation", .HslWorkS)
             .HslTweakLuminanceLabel.Content =
@@ -902,10 +906,14 @@ Partial Friend Class ColorDlgWindow
 
         ' Update the displayed per-component values.
         With Me
-            .HsvTweakHueLabel.Content = .DoubleValueStr("Hue", HsvWorkH)
-            .HsvTweakSaturationLabel.Content = .DoubleValueStr("Saturation",
-                                                               HsvWorkS)
-            .HsvTweakValueLabel.Content = .DoubleValueStr("Value", HsvWorkV)
+            .HsvTweakHueDegreesLabel.Content =
+                .DoubleValueStr("Hue degrees", HsvWorkH * 360.0)
+            .HsvTweakHueFractionLabel.Content =
+                .DoubleValueStr("Hue fraction", HsvWorkH)
+            .HsvTweakSaturationLabel.Content =
+                .DoubleValueStr("Saturation", HsvWorkS)
+            .HsvTweakValueLabel.Content =
+                .DoubleValueStr("Value", HsvWorkV)
         End With
 
         ' Update the square.

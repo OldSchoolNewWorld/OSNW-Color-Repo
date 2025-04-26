@@ -654,7 +654,7 @@ Partial Public Class ColorUtilities
         Else
 
             ' H must be < 1.
-            Dim VarHue6 As System.Double = If(hueIn = 1.0, 0.0, hueIn * 6.0)
+            Dim VarHue6 As System.Double = If(hueIn.equals(1.0), 0.0, hueIn * 6.0)
 
             Dim Var_I As System.Double = Math.Floor(VarHue6)
             Dim Var_1 As System.Double = valueIn * (1.0 - saturationIn)

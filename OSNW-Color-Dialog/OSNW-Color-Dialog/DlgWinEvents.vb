@@ -264,10 +264,10 @@ Partial Friend Class ColorDlgWindow
 
     Private Sub ConvertTextBox_DoubleTextChanged(sender As Object,
                                                  e As TextChangedEventArgs) _
-       Handles ConvertHslHueTextBox.TextChanged,
+       Handles ConvertHueFractionTextBox.TextChanged,
+           ConvertHueDegreesTextBox.TextChanged,
            ConvertHslSaturationTextBox.TextChanged,
            ConvertHslLuminanceTextBox.TextChanged,
-           ConvertHsvHueTextBox.TextChanged,
            ConvertHsvSaturationTextBox.TextChanged,
            ConvertHsvValueTextBox.TextChanged
 
@@ -283,11 +283,15 @@ Partial Friend Class ColorDlgWindow
             End If
 
             ' Getting this far indicates a good double. Check range.
-            If SendingTextBox.Equals(Me.ConvertHslHueTextBox) OrElse
-                SendingTextBox.Equals(Me.ConvertHsvHueTextBox) Then
-
+            If SendingTextBox.Equals(Me.ConvertHueFractionTextBox) Then
                 ' Prevent reaching full scale.
                 If DoubleVal < 0.0 OrElse DoubleVal >= 1.0 Then
+                    SendingTextBox.Background = BadBackgroundBrush
+                    Exit Sub ' Early exit.
+                End If
+            ElseIf SendingTextBox.Equals(Me.ConvertHueDegreesTextBox) Then
+                ' Prevent reaching full scale.
+                If DoubleVal < 0.0 OrElse DoubleVal >= 360.0 Then
                     SendingTextBox.Background = BadBackgroundBrush
                     Exit Sub ' Early exit.
                 End If

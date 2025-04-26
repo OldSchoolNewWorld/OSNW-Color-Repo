@@ -59,6 +59,7 @@ Partial Friend Class ColorDlgWindow
             Const LARGEINCREASE As System.String = "Click for a large increase in "
             Const ENTER255 As System.String = "Enter the component value (0-255)"
             Const ENTER9999 As System.String = "Enter the component value (0.0-.9999)"
+            Const ENTER360 As System.String = "Enter the component value (0.0-359.9999)"
             Const ENTER10 As System.String = "Enter the component value (0.0-1.0)"
             Const ENTERHTML As System.String = "Enter the HTML #RRGGBB code"
             Const THISCOMPONENT As System.String = "this component"
@@ -75,10 +76,10 @@ Partial Friend Class ColorDlgWindow
             .ConvertRgbGreenTextBox.ToolTip = ENTER255
             .ConvertRgbBlueTextBox.ToolTip = ENTER255
             .ConvertHtmlTextBox.ToolTip = ENTERHTML
-            .ConvertHslHueTextBox.ToolTip = ENTER9999
+            .ConvertHueFractionTextBox.ToolTip = ENTER9999
             .ConvertHslSaturationTextBox.ToolTip = ENTER10
             .ConvertHslLuminanceTextBox.ToolTip = ENTER10
-            .ConvertHsvHueTextBox.ToolTip = ENTER9999
+            .ConvertHueDegreesTextBox.ToolTip = ENTER360
             .ConvertHsvSaturationTextBox.ToolTip = ENTER10
             .ConvertHsvValueTextBox.ToolTip = ENTER10
 
