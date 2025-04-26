@@ -9,13 +9,16 @@ Imports System.Windows
 Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
 ' TODO:
-' Add exception handling and activate for dialog events.
-'   Already in ExcepModelUtil?
 ' Add ability to set Hue as an angle.
+'   Convert tab: sync angle to/from Hue on GotFocus and refresh (UpdateVisuals?).
+'   HSL tab:Display at bottom on GotFocus.
+'   HSL tab:Display at bottom on GotFocus.
 ' Consider whether text changes and drawing clicks should only update
 '   UnderlyingRGB, as opposed to RgbWorkR/RgbWorkG/RgbWorkB. Also consider
 '   whether RgbWorkR/RgbWorkG/RgbWorkB should even exist.
 ' How to list copyrights for reference material?
+' Done. Add exception handling and activate for dialog events.
+'   Already in ExcepModelUtil?
 ' Done. Add shared values to be referenced by the ColorDialog and ColorDlgWindow.
 '   Initialization values.
 '   Others?
