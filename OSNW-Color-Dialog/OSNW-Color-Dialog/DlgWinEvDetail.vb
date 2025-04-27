@@ -6,7 +6,6 @@ Option Infer Off
 Imports System.Windows
 Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
 
-
 Partial Friend Class ColorDlgWindow
 
 #Region "Event Utilities"

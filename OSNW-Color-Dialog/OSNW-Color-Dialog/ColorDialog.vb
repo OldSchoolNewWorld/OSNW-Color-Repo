@@ -7,6 +7,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Windows
 Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
+Imports OEH = OSNW.Dialog.ColorDlgWindow.OSNWExceptionHandler
 
 ' TODO:
 ' Consider whether text changes and drawing clicks should only update
@@ -606,7 +607,7 @@ Public Class ColorDialog
                 ' Respond to an anticipated exception.
                 Dim CaughtBy As System.Reflection.MethodBase =
                         System.Reflection.MethodBase.GetCurrentMethod
-                ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+                OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx)
             End Try
             ' On getting this far without success, ...
             Return Nothing
@@ -637,7 +638,7 @@ Public Class ColorDialog
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx)
         End Try
         ' On getting this far without success, ...
         Return Nothing
@@ -667,7 +668,7 @@ Public Class ColorDialog
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx)
         End Try
         ' On getting this far without success, ...
         Return Nothing
@@ -696,7 +697,7 @@ Public Class ColorDialog
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx)
         End Try
         ' On getting this far without success, ...
         Return Nothing
@@ -814,7 +815,7 @@ Public Class ColorDialog
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx)
         End Try
     End Sub ' New
 
@@ -890,7 +891,7 @@ Public Class ColorDialog
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx)
         End Try
     End Function ' ShowDialog
 

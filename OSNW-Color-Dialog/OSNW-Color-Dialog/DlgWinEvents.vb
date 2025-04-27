@@ -7,7 +7,7 @@ Imports System.Windows
 Imports System.Windows.Controls
 Imports System.Windows.Input
 Imports SHWV = OSNW.Dialog.ColorDlgWindow.SharedHostedWindowValues
-
+Imports OEH = OSNW.Dialog.ColorDlgWindow.OSNWExceptionHandler
 
 ' NOTE: <UseWPF>true</UseWPF> may need to be added to the dialogs'
 ' <projectname>.vbproj file.
@@ -74,8 +74,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
 
     End Sub ' Window_Initialized
@@ -97,8 +96,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
 
     End Sub ' Window_Loaded
@@ -150,8 +148,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
 
     End Sub ' OkButton_Click
@@ -182,8 +179,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ConvertTabItem_GotFocus
 
@@ -221,8 +217,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ConvertTextBox_ByteTextChanged
 
@@ -257,8 +252,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ConvertTextBox_HtmlTextChanged
 
@@ -318,8 +312,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ConvertTextBox_DoubleTextChanged
 
@@ -346,8 +339,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -380,7 +372,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' DefinedComboBox_SelectionChanged
 
@@ -407,8 +399,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' RgbTabItem_GotFocus
 
@@ -422,8 +413,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' RgbImage_MouseLeftButtonUp
 
@@ -438,8 +428,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -456,8 +445,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -474,8 +462,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -490,8 +477,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -506,8 +492,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -524,8 +509,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -542,8 +526,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -558,8 +541,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -574,8 +556,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -592,8 +573,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -610,8 +590,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -626,8 +605,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -660,8 +638,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -676,8 +653,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' HsxSelectHueImage_MouseMove
 
@@ -694,7 +670,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' HsxSelectHueImage_MouseLeftButtonUp
 
@@ -716,8 +692,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' HslSelectSatLumImage_MouseLeftButtonUp
 
@@ -761,8 +736,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ShadeTabItem_GotFocus
 
@@ -776,8 +750,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ShadeImage_MouseLeftButtonUp
 
@@ -792,8 +765,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -808,8 +780,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -823,8 +794,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -838,8 +808,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -883,8 +852,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' TintTabItem_GotFocus
 
@@ -898,8 +866,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' TintImage_MouseLeftButtonUp
 
@@ -913,8 +880,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -928,8 +894,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -943,8 +908,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -958,8 +922,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1004,8 +967,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ToneTabItem_GotFocus
 
@@ -1019,8 +981,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' ToneImage_MouseLeftButtonUp
 
@@ -1035,8 +996,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1051,8 +1011,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1067,8 +1026,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1083,8 +1041,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1101,8 +1058,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1119,8 +1075,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1137,8 +1092,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1153,8 +1107,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub
 
@@ -1196,8 +1149,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' BlendTabItem_GotFocus
 
@@ -1268,8 +1220,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' BlendColorInfoTextBox_TextChanged
 
@@ -1301,8 +1252,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' RememberButton_Click
 
@@ -1315,8 +1265,7 @@ Partial Friend Class ColorDlgWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            ExceptionHandler.ShowExceptionMessageBox(
-                CaughtBy, CaughtEx, sender, e, Me)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
     End Sub ' RestoreButton_Click
 

@@ -3,6 +3,8 @@ Option Strict On
 Option Compare Binary
 Option Infer Off
 
+Imports OEH = OSNW.Dialog.ColorDlgWindow.OSNWExceptionHandler
+
 Class MainWindow
 
     Const DEFAULTRED As System.String = "64"
@@ -300,7 +302,7 @@ Class MainWindow
             ' Report the unexpected exception.
             Dim CaughtBy As System.Reflection.MethodBase =
                 System.Reflection.MethodBase.GetCurrentMethod()
-            Me.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e)
+            OEH.ShowExceptionMessageBox(CaughtBy, CaughtEx, sender, e, Me)
         End Try
 
     End Sub ' SelectButton_Click
