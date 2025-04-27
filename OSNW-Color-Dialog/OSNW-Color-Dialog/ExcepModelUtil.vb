@@ -7,6 +7,9 @@ Imports System.Reflection
 
 Partial Friend Class ColorDlgWindow
 
+    ' REF: OSNW-Exception-Handling-ModelsOSNW-Exception-Handling-Models
+    ' https://github.com/OldSchoolNewWorld/OSNW-Exception-Handling-Models
+
     ''' <summary>
     ''' Represents a <c>Class</c> that supplies functionality to respond to
     ''' <see cref="System.Exception"/>s.
