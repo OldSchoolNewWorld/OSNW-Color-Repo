@@ -54,74 +54,91 @@
                     <TextBlock x:Name="ConvertTabTextBlock" Text="Convert"
                         ToolTip="Fix LoadToolTips!">
                     </TextBlock>
-                </TabItem.Header>
+                </TabItem.Header>                
                 <DockPanel x:Name="ConvertDockPanel" LastChildFill="False"
                            HorizontalAlignment="Center">
-                    <DockPanel x:Name="HtmlDockPanel" DockPanel.Dock="Bottom" HorizontalAlignment="Left">
-                        <StackPanel x:Name="HtmlStackPanel" Margin="12,0,6,6" Width="80">
+                    <DockPanel x:Name="ConvertComponentDockPanel" DockPanel.Dock="Top">
+                        <DockPanel x:Name="ConvertRgbPanel" DockPanel.Dock="Left"
+                                   LastChildFill="False">
+                            <StackPanel x:Name="ConvertRgbStackPanel">
+                                <Label x:Name="EmptyAlignmentLabel" DockPanel.Dock="Top" HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Bottom" Height="26"></Label>
+                                <Label>Red</Label>
+                                <TextBox x:Name="ConvertRgbRedTextBox" Text="RgbRed"
+                                     ToolTip= "Fix LoadToolTips!">
+                                </TextBox>
+                                <Label>Green</Label>
+                                <TextBox x:Name="ConvertRgbGreenTextBox"
+                                     Text="RgbGreen"
+                                     ToolTip= "Fix LoadToolTips!">
+                                </TextBox>
+                                <Label>Blue</Label>
+                                <TextBox x:Name="ConvertRgbBlueTextBox"
+                                     Text="RgbBlue"
+                                     ToolTip="Fix LoadToolTips!">
+                                </TextBox>
+                            </StackPanel>
+                        </DockPanel>
+                        <DockPanel x:Name="ConvertHSLVPanel" DockPanel.Dock="Left"
+                                   LastChildFill="False" Margin="18,0,0,0" VerticalAlignment="Center">
+                            <DockPanel x:Name="ConvertHuePanel" DockPanel.Dock="Left" LastChildFill="False">
+                                <Label DockPanel.Dock="Top" HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Bottom" VerticalAlignment="Center" Margin="0,0,0,-15">Hue</Label>
+                                <DockPanel x:Name="ConvertHueDockPanel" DockPanel.Dock="Top"
+                                           LastChildFill="False" HorizontalAlignment="Center">
+                                    <StackPanel x:Name="ConvertHueFractionStackPanel" DockPanel.Dock="Left"
+                                                HorizontalAlignment="Right">
+                                        <Label>Fraction</Label>
+                                        <TextBox x:Name="ConvertHueFractionTextBox" DockPanel.Dock="Left" Text="Fraction"
+                                             ToolTip="Fix LoadToolTips!">
+                                        </TextBox>
+                                    </StackPanel>
+                                    <StackPanel x:Name="ConvertHueDegreesStackPanel" DockPanel.Dock="Left"
+                                                HorizontalAlignment="Left" Margin="12,0,0,0">
+                                        <Label>Degrees</Label>
+                                        <TextBox x:Name="ConvertHueDegreesTextBox" Text="Degrees"
+                                                 ToolTip="Fix LoadToolTips!">
+                                        </TextBox>
+                                    </StackPanel>
+                                </DockPanel>
+                                <DockPanel x:Name="ConvertSlvStackPanel" DockPanel.Dock="Top">
+                                    <DockPanel x:Name="ConvertHslDockPanel"
+                                               DockPanel.Dock="Left" LastChildFill="False">
+                                    </DockPanel>
+                                    <StackPanel x:Name="ConvertHslStackPanel"
+                                                DockPanel.Dock="Left">
+                                        <Label>Saturation (HSL)</Label>
+                                        <TextBox x:Name="ConvertHslSaturationTextBox"
+                                                 Text="HslSaturation" ToolTip="Fix LoadToolTips!">
+                                        </TextBox>
+                                        <Label>Luminance</Label>
+                                        <TextBox x:Name="ConvertHslLuminanceTextBox"
+                                     Text="HslLuminance"
+                                     ToolTip="Fix LoadToolTips!">
+                                        </TextBox>
+                                    </StackPanel>
+                                    <StackPanel x:Name="ConvertHsvStackPanel"
+                                                DockPanel.Dock="Left" Margin="12,0,0,0">
+                                        <Label>Saturation (HSV)</Label>
+                                        <TextBox x:Name="ConvertHsvSaturationTextBox"
+                                     Text="HsvSaturation"
+                                     ToolTip="Fix LoadToolTips!">
+                                        </TextBox>
+                                        <Label>Value</Label>
+                                        <TextBox x:Name="ConvertHsvValueTextBox"
+                                     Text="HsvValue"
+                                     ToolTip="Fix LoadToolTips!">
+                                        </TextBox>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </DockPanel>
+                    <DockPanel x:Name="ConvertHtmlDockPanel" DockPanel.Dock="Top" HorizontalAlignment="Left">
+                        <StackPanel x:Name="HtmlStackPanel" Width="80">
                             <Label HorizontalAlignment="Left">HTML</Label>
                             <TextBox x:Name="ConvertHtmlTextBox" Text="#A1B2C3" Width="80"
                                      ToolTip= "Fix LoadToolTips!" HorizontalAlignment="Left">
-                            </TextBox>
-                        </StackPanel>
-                    </DockPanel>
-                    <DockPanel x:Name="ConvertRgbDockPanel"
-                               DockPanel.Dock="Left" LastChildFill="False"
-                               Margin="12,0,6,6">
-                        <StackPanel x:Name="ConvertRgbStackPanel">
-                            <Label>Red</Label>
-                            <TextBox x:Name="ConvertRgbRedTextBox" Text="RgbRed"
-                                     ToolTip= "Fix LoadToolTips!">
-                            </TextBox>
-                            <Label Margin="0,3,0,0">Green</Label>
-                            <TextBox x:Name="ConvertRgbGreenTextBox"
-                                     Text="RgbGreen"
-                                     ToolTip= "Fix LoadToolTips!">
-                            </TextBox>
-                            <Label Margin="0,3,0,0">Blue</Label>
-                            <TextBox x:Name="ConvertRgbBlueTextBox"
-                                     Text="RgbBlue"
-                                     ToolTip="Fix LoadToolTips!">
-                            </TextBox>
-                        </StackPanel>
-                    </DockPanel>
-                    <DockPanel x:Name="ConvertHslDockPanel"
-                               DockPanel.Dock="Left" LastChildFill="False"
-                               Margin="30,0,6,6">
-                        <StackPanel x:Name="ConvertHslStackPanel">
-                            <Label>Hue (fraction)</Label>
-                            <TextBox x:Name="ConvertHueFractionTextBox" Text="HslHue"
-                                     ToolTip="Fix LoadToolTips!">
-                            </TextBox>
-                            <Label Margin="0,3,0,0">Saturation (HSL)</Label>
-                            <TextBox x:Name="ConvertHslSaturationTextBox"
-                                     Text="HslSaturation"
-                                     ToolTip="Fix LoadToolTips!">
-                            </TextBox>
-                            <Label Margin="0,3,0,0">Luminance</Label>
-                            <TextBox x:Name="ConvertHslLuminanceTextBox"
-                                     Text="HslLuminance"
-                                     ToolTip="Fix LoadToolTips!">
-                            </TextBox>
-                        </StackPanel>
-                    </DockPanel>
-                    <DockPanel x:Name="ConvertHsvDockPanel"
-                               DockPanel.Dock="Left" LastChildFill="False"
-                               Margin="30,0,12,6">
-                        <StackPanel x:Name="ConvertHsvStackPanel">
-                            <Label>Hue (degrees)</Label>
-                            <TextBox x:Name="ConvertHueDegreesTextBox" Text="HsvHue"
-                                     ToolTip="Fix LoadToolTips!">
-                            </TextBox>
-                            <Label Margin="0,3,0,0">Saturation (HSV)</Label>
-                            <TextBox x:Name="ConvertHsvSaturationTextBox"
-                                     Text="HsvSaturation"
-                                     ToolTip="Fix LoadToolTips!">
-                            </TextBox>
-                            <Label Margin="0,3,0,0">Value</Label>
-                            <TextBox x:Name="ConvertHsvValueTextBox"
-                                     Text="HsvValue"
-                                     ToolTip="Fix LoadToolTips!">
                             </TextBox>
                         </StackPanel>
                     </DockPanel>
