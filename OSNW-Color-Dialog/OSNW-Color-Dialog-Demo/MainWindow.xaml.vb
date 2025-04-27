@@ -3,7 +3,7 @@ Option Strict On
 Option Compare Binary
 Option Infer Off
 
-Imports OEH = OSNW.Dialog.ColorDlgWindow.OSNWExceptionHandler
+Imports OEH = OSNW_Color_Dialog_Demo.MainWindow.OSNWExceptionHandler
 
 Class MainWindow
 

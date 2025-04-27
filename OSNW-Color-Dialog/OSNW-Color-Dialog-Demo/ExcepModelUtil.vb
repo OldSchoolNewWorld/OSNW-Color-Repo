@@ -5,7 +5,7 @@ Option Infer Off
 
 Imports System.Reflection
 
-Partial Friend Class ColorDlgWindow
+Partial Class MainWindow
 
     ''' <summary>
     ''' Represents a <c>Class</c> that supplies functionality to respond to
@@ -648,4 +648,4 @@ Partial Friend Class ColorDlgWindow
 
     End Class ' OSNWExceptionHandler
 
-End Class ' ColorDlgWindow
+End Class ' MainWindow
