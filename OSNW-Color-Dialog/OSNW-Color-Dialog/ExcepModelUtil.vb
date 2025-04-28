@@ -27,54 +27,58 @@ Partial Friend Class ColorDlgWindow
         ' chosen, or used to create specialized versions, then used during
         ' development. Once no longer needed, the entire region can be deleted.
 
-        ' Private Sub SomeSub()
-        '     ' DEV: The outer protective wrapper goes here. It ensures that
-        '     ' unhandled exceptions, either local or in a subsequent call, are
-        '     ' captured.
-        '     Try
-        '         ' DEV: The major intended operation goes here.
-        ' 
-        '         ' DEV: Expected-safe operations go here.
-        '         ' Argument checking.
-        '         ' Setups.
-        ' 
-        '         ' DEV: An inner protective wrapper goes here. Exceptions can be
-        '         ' captured and dealt with where there is a better indication of
-        '         ' where things went wrong. Multiple risky operations can be
-        '         ' wrapped separately to further limit the scope of where a problem
-        '         ' occured or to have different reactions in place.
-        '         Try
-        '             ' DEV: A risky operation goes here.
-        ' 
-        '         Catch CaughtEx As System.Exception
-        '             ' BC30030 - Try must have at least one 'Catch' or a 'Finally'.
-        ' 
-        '             ' Respond to an anticipated exception.
-        '             Dim CaughtBy As System.Reflection.MethodBase =
-        '                 System.Reflection.MethodBase.GetCurrentMethod
-        '             Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        ' 
-        '             ' Optional rethrow of the caught exception.
-        '             'Throw
-        ' 
-        '         Finally
-        '             ' BC30030 - Try must have at least one 'Catch' or a 'Finally'.
-        '
-        '             ' DEV: Do any clean-ups or back-outs here.
-        '
-        '         End Try
-        ' 
-        '         ' DEV: Expected-safe operations go here.
-        ' 
-        '     Catch CaughtEx As System.Exception
-        '         ' Report the unexpected exception.
-        '         Dim CaughtBy As System.Reflection.MethodBase =
-        '             System.Reflection.MethodBase.GetCurrentMethod()
-        '         Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        '     End Try
-        ' End Sub
+        'Private Sub SomeSub()
+        '    ' DEV: The outer protective wrapper goes here. It ensures that
+        '    ' unhandled exceptions, either local or in a subsequent call, are
+        '    ' captured.
+        '    Try
+        '        ' DEV: The major intended operation goes here.
+
+        '        ' DEV: Expected-safe operations go here.
+        '        ' Argument checking.
+        '        ' Setups.
+
+        '        ' DEV: An inner protective wrapper goes here. Exceptions can be
+        '        ' captured and dealt with where there is a better indication of
+        '        ' where things went wrong. Multiple risky operations can be
+        '        ' wrapped separately to further limit the scope of where a problem
+        '        ' occured or to have different reactions in place.
+        '        Try
+        '            ' DEV: A risky operation goes here.
+
+        '        Catch CaughtEx As System.Exception
+        '            ' BC30030 - Try must have at least one 'Catch' or a 'Finally'.
+
+        '            ' Respond to an anticipated exception.
+        '            Dim CaughtBy As System.Reflection.MethodBase =
+        '                System.Reflection.MethodBase.GetCurrentMethod
+        '            ' For a Window:
+        '            ShowExceptionMessageBox(CaughtBy, CaughtEx, Me)
+        '            ' For a non-Window:
+        '            ' ShowExceptionMessageBox(CaughtBy, CaughtEx)
+
+        '            ' Optional rethrow of the caught exception.
+        '            'Throw
+
+        '        Finally
+        '            ' BC30030 - Try must have at least one 'Catch' or a 'Finally'.
+
+        '            ' DEV: Do any clean-ups or back-outs here.
+
+        '        End Try
+
+        '        ' DEV: Expected-safe operations go here.
+
+        '    Catch CaughtEx As System.Exception
+        '        ' Report the unexpected exception.
+        '        Dim CaughtBy As System.Reflection.MethodBase =
+        '            System.Reflection.MethodBase.GetCurrentMethod()
+        '        ' For a Window:
+        '        ShowExceptionMessageBox(CaughtBy, CaughtEx, Me)
+        '        ' For a non-Window:
+        '        ' ShowExceptionMessageBox(CaughtBy, CaughtEx)
+        '    End Try
+        'End Sub
 
 #End Region ' "Basic Sub/Function Model"
 

@@ -52,8 +52,10 @@ Partial Class MainWindow
         '             ' Respond to an anticipated exception.
         '             Dim CaughtBy As System.Reflection.MethodBase =
         '                 System.Reflection.MethodBase.GetCurrentMethod
-        '             Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        '            ' For a Window:
+        '            ShowExceptionMessageBox(CaughtBy, CaughtEx, Me)
+        '            ' For a non-Window:
+        '            ' ShowExceptionMessageBox(CaughtBy, CaughtEx)
         ' 
         '             ' Optional rethrow of the caught exception.
         '             'Throw
@@ -71,8 +73,10 @@ Partial Class MainWindow
         '         ' Report the unexpected exception.
         '         Dim CaughtBy As System.Reflection.MethodBase =
         '             System.Reflection.MethodBase.GetCurrentMethod()
-        '         Me.ShowExceptionMessageBox(CaughtBy, CaughtEx)
-        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        '        ' For a Window:
+        '        ShowExceptionMessageBox(CaughtBy, CaughtEx, Me)
+        '        ' For a non-Window:
+        '        ' ShowExceptionMessageBox(CaughtBy, CaughtEx)
         '     End Try
         ' End Sub
 

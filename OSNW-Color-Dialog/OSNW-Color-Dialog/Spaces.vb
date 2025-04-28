@@ -700,8 +700,8 @@ Partial Friend Class ColorDlgWindow
     '''' Respond to a click in the specified (sendingImage) saturation vs.
     '''' luminance/value image.
     '''' </summary>
-    '''' <param name="sendingImage">xxxxxxxxxxxxxxxxxxxxxxx</param>
-    '''' <param name="e">xxxxxxxxxxxxxxxxxxxxxxx</param>
+    '''' <param name="sendingImage">Specifies which image was clicked.</param>
+    '''' <param name="e">Specifies the associated MouseButtonEventArgs.</param>
     Private Sub HsxSatProcessMouseClick(
         sendingImage As System.Windows.Controls.Image,
         e As MouseButtonEventArgs)
